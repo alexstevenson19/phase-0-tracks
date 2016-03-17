@@ -54,6 +54,45 @@ figcaption {
   text-align: right;
 }
 
+@media screen and (max-width: 435px) {
+
+  body {width: 100%
+    margin: auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+
+  #external-links {
+  width: 100%;
+  text-align: center;
+  
+}
+  main {width: 100%;}
+
+}
+
+  figcaption {
+    font-style: italic;
+    text-align: center;
+}
+
+
+
+/* @media screen and (max-width: 400px) {
+
+
+  h1 {font-size: .85em;}
+  #external-links {
+  width: 100%;
+  margin: 0 auto;
+}
+
+  main {width: 90%;}
+
+}*/
+
 /* @media screen and (max-width: 500px) {
   body {
     background-color: hotpink;
