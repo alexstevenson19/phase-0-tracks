@@ -1,15 +1,29 @@
 
 # Elevator Robot Algorithm (12 story building)
 
+
 # (Assuming the robot has successfully reached the lobby)
 
 # Go to elevator call buttons.
 
 # Determine which direction to go. If up=true, press “up” button. If down=true, press “down” button.
 
-# When doors open, walk forward five steps. Turn left (counter clockwise) 90°. Walk two steps. Turn left (counter-clockwise) 90°. Place finger/button presser at 0,0 point (G button.)
+# When doors open, walk forward five steps. Turn left (counter clockwise) 90°. Walk two steps. Turn left (counter-clockwise) 90°. Place finger/button-presser at 0,0 point (G button.)
 
 # [The elevator button grid is 3 columns wide and 4 rows tall. The 1st floor/G button is the bottom left-most button.]
 
-# 
+# Determine what floor to travel to, or get input from user. 
+# ex. puts “What floor?” 
+# floor = gets.chomp
+# if floor.to_i > 12, puts “The building isn’t that tall, please enter floor again.”
+# else 
+# press the corresponding floor.to_i button according to grid layout.
+
+# grid layout example - if the desired floor is 8, move finger/button-presser up two rows, then move right one column, press button.
+
+# Return finger/button-presser to body side. Monitor altimeter and gyro to elevator motion and elevation.
+
+# When elevator stops, wait for door to open.
+
+# Turn left (counter-clockwise) 90°. Walk two steps. Turn right (clockwise) 90°. Walk five steps to exit the elevator.
 
