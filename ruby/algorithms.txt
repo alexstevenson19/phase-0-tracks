@@ -1,0 +1,15 @@
+
+# Elevator Robot Algorithm (12 story building)
+
+# (Assuming the robot has successfully reached the lobby)
+
+# Go to elevator call buttons.
+
+# Determine which direction to go. If up=true, press “up” button. If down=true, press “down” button.
+
+# When doors open, walk forward five steps. Turn left (counter clockwise) 90°. Walk two steps. Turn left (counter-clockwise) 90°. Place finger/button presser at 0,0 point (G button.)
+
+# [The elevator button grid is 3 columns wide and 4 rows tall. The 1st floor/G button is the bottom left-most button.]
+
+# 
+
