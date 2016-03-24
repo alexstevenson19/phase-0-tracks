@@ -1,1 +1,81 @@
-* {background-color: red;}
+body {
+  background-color: #ffdd99;
+  width: 700px;
+  margin: auto ;
+}
+
+header {
+ /* border: 2px solid blue; */
+  background-color: #cce6ff;
+  display: block;
+  font-family: Arial;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.column-1{
+  border: 1px solid red;
+  display:inline-block;
+  background-color: #bfbfbf;
+  width: 40%;
+  font-family: Arial;
+  color: white;
+  float: left;
+  padding: 15px 20px 20px 20px;
+}
+
+.column-2{
+  border: 1px solid green;
+  display:inline-block;
+  background-color: white;
+  width: 40%;
+  float: right;
+  font-family: Times;
+  padding: 15px 20px 20px 20px;
+  
+}
+
+
+footer {
+  border: 2px solid blue;
+  display: inline-block;
+  background-color: #cce6ff;
+  margin-top: 20px;
+  font-family: Arial;
+  padding: 15px 20px 15px 20px;
+  width: 660px;
+  text-align: center;
+}
+
+h1, h2{
+  color: #800000;
+}
+
+h2 {
+  font-size: .8em;
+  padding-top: 10px;
+  
+}
+
+header p {
+  color: #595959;
+}
+
+.image {
+   content:url(http://www.clipartbest.com/cliparts/acq/oRd/acqoRdaji.jpeg);
+   width: 40%;
+   margin: auto;
+   padding-top: 32px;
+}
+
+a:link{
+  color: white;
+}
+
+a:visited{
+  color: yellow;
+}
+
+ul {
+  list-style-type: circle;
+}
