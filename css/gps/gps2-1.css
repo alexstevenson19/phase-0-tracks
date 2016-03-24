@@ -58,14 +58,14 @@ h2 {
 }
 
 header p {
-  color: white;
+  color: #595959;
 }
 
 .image {
    content:url(http://www.clipartbest.com/cliparts/acq/oRd/acqoRdaji.jpeg);
    width: 40%;
    margin: auto;
-   padding-top: 25px;
+   padding-top: 32px;
 }
 
 a:link{
