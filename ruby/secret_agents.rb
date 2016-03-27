@@ -20,7 +20,7 @@ def encrypt(password)
     encrypt_password.concat(ord_num.chr).to_s
   end
 # using 'p' to print the value of the final encrypted password. Note: using 'puts' called the result as a string, which could not be used by the following method.
-p encrypt_password
+encrypt_password
 end
 
 
@@ -31,8 +31,36 @@ def decrypt(password)
        ord_num = (i.ord-1)
         if ord_num == 96
           ord_num = 122
+        elsif
+          ord_num == 64
+          ord_num = 90
         end
-       decrypt_password.concat(ord_num.chr).to_s
+        decrypt_password.concat(ord_num.chr).to_s
+   end
+  decrypt_password
+end
+
+#Interface - ask for info
+puts "Hello agent, would you like to encrypt or decrypt a password?"
+agent_input = gets.chomp
+
+valid_input = false
+
+until valid_input
+  
+  if agent_input.downcase == "encrypt"
+      puts "Please enter passcode(s)."
+      encrypt_passcode = gets.chomp
+      puts "Here is your disguised password: #{encrypt(encrypt_passcode)}."
+      valid_input = true
+    elsif
+    agent_input.downcase == "decrypt"
+      puts "Please enter passcode(s)."
+      decrypt_passcode = gets.chomp
+      puts "Here is your restored password #{decrypt(decrypt_passcode)}."
+      valid_input = true
+    else
+    puts "Please re-enter your selection."
+    agent_input = gets.chomp
   end
-p decrypt_password
 end
