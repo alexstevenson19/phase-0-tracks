@@ -7,7 +7,7 @@ round = 0
 
 until (round += 1) > process_num.to_i
 
-#Gather Data
+#Gather Basic Data
 	puts "Please enter the applicant's name."
 	applicant_name = gets.chomp
 
@@ -33,7 +33,21 @@ until (round += 1) > process_num.to_i
 				applicant_health = gets.chomp
 		end
 
-	# end data collection
+	# end basic data collection
+
+
+	# check for allergies
+	list = false
+	until list
+		puts "Please enter all allergies. Type 'done' when finished."
+			applicant_allergies = gets.chomp
+			if applicant_allergies.downcase == "done"
+				list = true
+			elsif
+				applicant_allergies.downcase == "sunshine"
+				list = true
+			end
+	end
 
 
 	# age and year of birth check, put into a new variable
@@ -41,11 +55,9 @@ until (round += 1) > process_num.to_i
 	applicant_check_yob = current_year - applicant_yob.to_i
 	p applicant_check_yob
 
-
 	# Detection Logic for vampires or werewolves
-
-	if 
-		(applicant_name.downcase == "drake cula") || (applicant_name.downcase == "tu fang")
+	if 	#moved name test to top, otherwise the conditions never check that far down. Also the name check is very absolute.
+		(applicant_name.downcase == "drake cula") || (applicant_name.downcase == "tu fang") || (applicant_allergies.downcase == "sunshine")
 		puts "#{applicant_name}: Definitly a vampire."
 	elsif
 		(applicant_age.to_i == applicant_check_yob.to_i) && (applicant_garlic.downcase == "y")
@@ -63,7 +75,7 @@ until (round += 1) > process_num.to_i
 	# 	(applicant_name.downcase == "drake cula") || (applicant_name.downcase == "tu fang")
 	# 	puts "Definitly a vampire."
 	else
-		puts "Results inconclusive."
+		puts "#{applicant_name}: Results inconclusive."
 	end
 
 end
