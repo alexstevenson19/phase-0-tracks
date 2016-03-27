@@ -16,6 +16,10 @@ until (round += 1) > process_num.to_i
 
 	puts "What year was the applicant born?"
 	applicant_yob = gets.chomp
+		until applicant_yob.to_i < Time.now.year
+			puts "Please re-enter the correct year."
+			applicant_yob = gets.chomp
+		end
 
 	puts "Would the applicant like garlic bread at lunch? (y/n)"
 	applicant_garlic = gets.chomp
@@ -65,10 +69,10 @@ until (round += 1) > process_num.to_i
 		puts "#{applicant_name}: Probably not a vampire."
 	elsif
 		(applicant_age.to_i != applicant_check_yob.to_i && applicant_garlic.downcase == "n") && (applicant_age.to_i != applicant_check_yob.to_i && applicant_health.downcase == "y")
-		puts "#{applicant_name}: Probably a vampire-garlic."
+		puts "#{applicant_name}: Probably a vampire -(garlic)."
 	elsif
 		(applicant_age.to_i != applicant_check_yob.to_i && applicant_garlic.downcase == "y") && (applicant_age.to_i != applicant_check_yob.to_i && applicant_health.downcase == "n")
-		puts "#{applicant_name}: Probably a vampire-health"
+		puts "#{applicant_name}: Probably a vampire -(health)"
 	elsif 
 		(applicant_age.to_i != applicant_check_yob.to_i) && (applicant_garlic.downcase == "n") && (applicant_health.downcase == "n")
 		puts "#{applicant_name}: Almost certainly a vampire."
