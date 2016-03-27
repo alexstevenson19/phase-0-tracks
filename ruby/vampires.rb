@@ -36,7 +36,7 @@ until (round += 1) > process_num.to_i
 	# end basic data collection
 
 
-	# check for allergies
+	# check for allergies - 'done' or 'sunshine' end the loop. Sunshine condition is added to first if statement in next section.
 	list = false
 	until list
 		puts "Please enter all allergies. Type 'done' when finished."
@@ -79,3 +79,5 @@ until (round += 1) > process_num.to_i
 	end
 
 end
+# Plot twist message after program runs, but just before exit.
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
