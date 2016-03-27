@@ -27,3 +27,36 @@
 
 # Turn left (counter-clockwise) 90°. Walk two steps. Turn right (clockwise) 90°. Walk five steps to exit the elevator.
 
+
+
+
+
+
+Algorithm - Boarding a loop bound “L” train at Rockwell Station, Chicago Il
+
+# Prepartion - confirm possession of entry Ventra (CTA) card
+# Approach station on sidewalk
+   If the gate is down, stop and wait for gates to raise again. (The Rockwell Station is the first station that has tracks and station on the ground before the line reaches the terminal three stops later.)
+
+# Proceed through the station doors and approach turnstiles.
+# Prior to reaching the turnstiles, take out entry card.
+# At turnstile, stop, and place entry card over the sensor on the right.
+# Wait for card to be read and message to appear on turnstile screen.
+
+# If the turnstile screen displays green Go message, proceed forward through the gate to the platform straight ahead.
+# Elsif, the turnstile screen displays the red error message that the card was not read:
+	1. Raise the card away from the sensor.
+	2. Wait for the turnstile sensor to reset.
+	3. When the sensor resets and displays the message that it is ready to read a card, place the entry card above the sensor and wait for message.
+
+ 	If an error message is received again, repeat steps 1-3 again once.
+	If an error message is received after the second repeat of steps 1-3, turn around 180° and go to station agent booth. Follow the station agent instructions.
+
+# Upon passing through the turnstile, walk straight onto the platform, avoiding any obstacles.
+# Walk into the loading area avoiding obstacles. In an area with space, turn left 90°.
+# Wait for train.
+# When train arrives at the platform, adjust location to line up with nearest train car doors.
+# Wait for passengers to exit train.
+# When clear, move forward and enter train.
+# Locate a clear area inside the train car to stand, and enjoy the ride.
+
