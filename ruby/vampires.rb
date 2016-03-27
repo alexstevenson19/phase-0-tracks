@@ -51,9 +51,10 @@ until (round += 1) > process_num.to_i
 
 
 	# age and year of birth check, put into a new variable
-	current_year = 2016
+	# current_year = 2016, using a built in Time method
+	current_year = Time.now.year
 	applicant_check_yob = current_year - applicant_yob.to_i
-	p applicant_check_yob
+	#p applicant_check_yob - I used this print line as a test that the math was working
 
 	# Detection Logic for vampires or werewolves
 	if 	#moved name test to top, otherwise the conditions never check that far down. Also the name check is very absolute.
@@ -79,5 +80,6 @@ until (round += 1) > process_num.to_i
 	end
 
 end
-# Plot twist message after program runs, but just before exit.
+
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+
