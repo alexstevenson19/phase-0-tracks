@@ -15,6 +15,10 @@ def encrypt(password)
         elsif
           ord_num == 91
           ord_num = 65
+        # additional elsif statement to avoid exclamation points being put into 'spaces' when encoded.
+        elsif
+          ord_num == 33
+          ord_num = 32
         end
     # stitch together the individual characters into a string and fill into empty string defined earlier   
     encrypt_password.concat(ord_num.chr).to_s
@@ -34,20 +38,25 @@ def decrypt(password)
         elsif
           ord_num == 64
           ord_num = 90
+        elsif
+          ord_num == 31
+          ord_num = 32
         end
         decrypt_password.concat(ord_num.chr).to_s
    end
   decrypt_password
 end
 
-#Interface - ask for info
+#Interface - ask for encrypt or decrypt choice.
 puts "Hello agent, would you like to encrypt or decrypt a password?"
 agent_input = gets.chomp
 
+# set variable to end 'until' loop
 valid_input = false
 
 until valid_input
-  
+
+# Process user entry and run chosen method. Print result in a sentence. Update 'valid_input' to end loop.
   if agent_input.downcase == "encrypt"
       puts "Please enter passcode(s)."
       encrypt_passcode = gets.chomp
@@ -57,7 +66,7 @@ until valid_input
     agent_input.downcase == "decrypt"
       puts "Please enter passcode(s)."
       decrypt_passcode = gets.chomp
-      puts "Here is your restored password #{decrypt(decrypt_passcode)}."
+      puts "Here is your restored password: #{decrypt(decrypt_passcode)}."
       valid_input = true
     else
     puts "Please re-enter your selection."
