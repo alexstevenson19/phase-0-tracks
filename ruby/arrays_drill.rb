@@ -1,3 +1,22 @@
+
+
+def build_array(x, y, z)
+  method_array = [x, y, z]
+  p method_array
+end
+
+
+arr = []
+def add_to_array(arr, x)
+  total_array = arr << x
+  p total_array
+end
+
+
+
+
+
+
 array_5_2 = []
 
 first_array = array_5_2
@@ -36,3 +55,9 @@ new_array_5_2 = ["Chicago", "Denver", "Des Moines"]
 array_mash = array_5_2 + new_array_5_2
 
 p array_mash
+
+build_array(1, "two", nil)
+
+add_to_array([], "a")
+add_to_array(["a", "b", "c", 1, 2], 3)
+add_to_array(["blue", 2, true], "red")
