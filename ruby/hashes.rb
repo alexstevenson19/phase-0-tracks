@@ -33,11 +33,13 @@ puts "Are there pets? (y/n)"
 
 pets = gets.chomp.downcase
 
-# :pet_type = []
-# def pet_followup (pets)
-	if pets = "y"
+	if pets == "y"
+		interior_client[:pet] = true
 		"Please enter type of pet(s)."
 		interior_client[:pet_type] = gets.chomp
+	else
+		pets == "n"
+		interior_client[:pet] = false
 	end
 # interior_client[:pet_type]
 
@@ -48,4 +50,6 @@ interior_client[:decorstyle] = gets.chomp
 
 
 puts "Interior Decor report\n 
-	Client Name: #{ interior_client[:fullname] }"
+	Client Name: #{ interior_client[:fullname] }\n
+	Family Size: #{ interior_client[:familysize] } person(s) \n
+	"
