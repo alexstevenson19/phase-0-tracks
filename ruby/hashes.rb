@@ -50,10 +50,10 @@ puts "Interior Decor Report\n
 	"
 
 
-  puts "Please review and  enter any changes listing the category and updated information. Type 'done' when finished."
+  puts "Please review and enter any category (including underscores) you would like to update. Type 'none' if there are no changes."
   updates = gets.chomp.to_sym  #convert the input to a symbol like all of the keys
   
-  if updates == :done #A symbol because all of the 'gets' are converted to a symbol, that will include the string 'done' if entered.
+  if updates == :none #A symbol because all of the 'gets' are converted to a symbol, that will include the string 'none' if entered.
   	puts "Thank you. We will process your application and be in touch.\n"
   elsif
   	updates == :age || updates == :familysize  # a case for the integer inputs
@@ -71,7 +71,7 @@ puts "Interior Decor Report\n
 # p interior_client (printed to check value in early stages. Now values are in report below.)
 
 # final report is printed.
-puts "Updated Interior Decor Report\n 
+puts "Final Interior Decor Report\n 
 	client_name: #{ interior_client[:client_name] }\n
 	age: #{ interior_client[:age] }\n
 	familysize: #{ interior_client[:familysize] } person(s) \n
