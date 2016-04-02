@@ -1,22 +1,24 @@
-
+# Release 0, Write a method that can take a block as input.
 
 def scary_story
   puts "It was a quiet night until..."
   yield("Wolfman", "The Blob", "ate", "ooozed")
 end
 
+# the block to be used at the 'yield' in the Scary Story method above.
 scary_story { |monster1, monster2, action1, action2| puts "The #{monster1} escaped from the graveyard and went to a bar. It #{action1} three customers. At the same time #{monster2} #{action2} on the top of Lookout Hill."}
 
 
 
 
-
+# Release 1 - Do The Thing 1, set up an array and a hash.
 
 car_companies = ["Toyota", "Ford", "Honda", "BMW", "Mercedes"]
 
-fish = { "tuna" => "maguro", "halibut" => "saba", "shrimp" => "ebi", "octopus" => "tako"}
+fish = { "tuna" => "maguro", "mackerel" => "saba", "shrimp" => "ebi", "octopus" => "tako"}
 
 
+# Do The Thing 2, iterate the array and hash using .each
 p car_companies
 
 car_companies.each { |company| puts "These are car companies: #{company}"}
@@ -30,8 +32,7 @@ fish.each { |english, japanese| puts "#{english.capitalize} is #{japanese} in Ja
 p fish
 
 
-
-
+# Do The Thing 2, iterate the array using .map! (a destructive map is impossible on a hash)
 p car_companies
 
 car_companies.map! { |company| company.upcase }
@@ -41,14 +42,8 @@ p car_companies
 
 
 
-vowels = ["a", "e", "i", "o", "u"]
-numbers = {1 => "one", 2 => "two", 3 => "three", 4 => "four"}
 
-p vowels.reject { |vowel| vowel.next == "f" }
-
-
-
-
+# Release 2, set up an array and a hash
 
 vowels = ["a", "e", "i", "o", "u"]
 numbers = {1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five"}
@@ -60,13 +55,15 @@ p vowels.select { |vowel| "Chicago".include?(vowel) }
 p numbers.select { |digit, word| digit >= word.length }
 p vowels
 # changes the structure to contain only those elements that evaluate true
-p vowels.keep_if { |vowel| "Chicago".include?(vowel) }
-p numbers.keep_if { |digit, word| digit >= word.length }
+p vowels.keep_if { |vowel| "Denver".include?(vowel) }
+p numbers.keep_if { |digit, word| digit <= word.length }
 p vowels
 
-# reset after dangerouse 'keep if' above
+# reset after dangerous map (i.e. map!) 'keep if' from previous exercise
 vowels = ["a", "e", "i", "o", "u"]
 numbers = {1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five"}
 # drops elements until the block evaluates to false
 p vowels.drop_while { |vowel| "a being".include?(vowel) }
 p numbers.drop_while { |digit, word| digit < word.length }
+
+
