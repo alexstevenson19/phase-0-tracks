@@ -73,5 +73,10 @@ bookshelf_top_row[:cube4][:storage_box][:dad_photo_album] = 2
 # print/check the change made to dad_photo_album value
 p bookshelf_top_row[:cube4][:storage_box][:dad_photo_album]
 
+# use include? array method on misc!
+p bookshelf_top_row[:cube1][:misc_1].include?("a")
+
+# use index method on misc_1 contents
+p bookshelf_top_row[:cube1][:misc_1].index("clock")
 
 
