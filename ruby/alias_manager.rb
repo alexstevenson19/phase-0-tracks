@@ -33,12 +33,20 @@ puts "Hello, Welcome to Alias Maker 2016.\n
 
 alias_name = "#{switch_first} #{ switch_second}"
 
-spy_alias[original_name] = alias_name
+final_statements = []
+spy_alias = {original_name.to_sym => alias_name}
 
-# p spy_alias
 spy_alias.each do |original_name, alias_name| 
-	puts "#{alias_name} is #{original_name}"
+	final_statements << "Complete report:#{original_name} is #{alias_name}"
 end
+p spy_alias
+
+spy_report = []
+spy_report << final_statements
+
+p spy_report
+#p final_statements
+
 
 
 =begin
