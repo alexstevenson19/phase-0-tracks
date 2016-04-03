@@ -16,7 +16,7 @@ until endcode
 	#swap first and last name by making the words into two arrays with the method split quote space quote (index 0 and 1) by, and then reversing that array
 	original_name = gets.chomp
 
-	if original_name.downcase == "quit" || original_name == ""
+	if original_name.downcase == "quit" || original_name == "" #exit with 'quit' or a return (chomp)
 		endcode = true
 	else
 		switch = original_name.split (' ')
