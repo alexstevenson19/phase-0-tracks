@@ -27,7 +27,7 @@ until endcode
 		switch_second = switch[1].downcase
 
 
-		#not the most elegant way to change the letters, but I was stuck with arrays and hashes. gsub! worked
+		#not the most elegant way to change the letters, but gsub! worked
 		#technically I could use this method for all of the vowels and consonats at once, but it is a little easier to read this way.
 
 		switch_first.gsub!(/[aeiou]/, "a"=>"e", "e"=>"i", "i"=>"o", "o"=>"u", "u"=>"a")
