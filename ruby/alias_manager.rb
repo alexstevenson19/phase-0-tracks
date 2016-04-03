@@ -1,18 +1,22 @@
 
+#set up hash and array I will use in loop
 spy_alias = {}
 spy_report = []
 
+# set a boolean to stop the loop and exit
 endcode = false
 
 puts "Hello, Welcome to Alias Maker 2016."
 until endcode
+	# put this spy report adder at the top of the loop to keep the values from the bottom. Also use the += adder so it doesn't reset.
 	spy_report += []
+
 	puts "Please enter the name you would like to encrypt (- When finished type 'quit') "
 
 	#swap first and last name by making the words into two arrays with the method split quote space quote (index 0 and 1) by, and then reversing that array
 	original_name = gets.chomp
 
-	if original_name == "quit"
+	if original_name.downcase == "quit"
 		endcode = true
 	else
 		switch = original_name.split (' ')
@@ -40,43 +44,32 @@ until endcode
 		switch_first.capitalize!
 		switch_second.capitalize!
 
+		# this 'alias_name' will now be the value that will match the key 'original_name' in the hash
 		alias_name = "#{switch_first} #{ switch_second}"
 			
-
-			final_statements = []
+			# declare a string variable to be over written in the iteration loop
+			# put the key-(original_name) and value-(alias_name) from above into the hash to be iterated
+			final_statements = "blank"
 			spy_alias = {original_name.to_sym => alias_name}
 
 			spy_alias.each do |original_name, alias_name| 
-				final_statements << "Complete report:#{original_name} is #{alias_name}"
+				final_statements = "#{original_name} is disguised as #{alias_name}."
 				end
-			p spy_alias
 
-			
-			spy_report.push(final_statements)  
+			#while testing the program I printed the spy_alias on the next line to check the output as I went through the loop.
+			#p spy_alias
+
+			spy_report.push(final_statements)  #use push to keep adding data to spy_report array
 
 	end #if loop
 
 end #until loop
-p spy_report
-#p final_statements
+
+puts "-- Start Report --"
+
+puts "#{spy_report}"
+
+puts "-- End Report --"
 
 
 
-=begin
-===========================
-
-p switch_first
-puts "#{switch_second}"
-
-first_array = switch_first.split('')
-p first_array
-
-
-first_array.map! do |spy_letter|
-	if spy_letter != "a"
-		spy_letter == spy_letter.next
-	else
-		spy_letter == spy_letter
-	end
-end
-=end
