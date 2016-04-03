@@ -1,49 +1,62 @@
 
 spy_alias = {}
+spy_report = []
 
-puts "Hello, Welcome to Alias Maker 2016.\n
-	Please enter the name you would like to encrypt (- When finished type 'quit') "
+endcode = false
+
+puts "Hello, Welcome to Alias Maker 2016."
+until endcode
+	spy_report += []
+	puts "Please enter the name you would like to encrypt (- When finished type 'quit') "
 
 	#swap first and last name by making the words into two arrays with the method split quote space quote (index 0 and 1) by, and then reversing that array
 	original_name = gets.chomp
-	switch = original_name.split (' ')
-	switch.reverse!
 
-	#turn the array indexes into strings
-	switch_first = switch[0].downcase
-	switch_second = switch[1].downcase
+	if original_name == "quit"
+		endcode = true
+	else
+		switch = original_name.split (' ')
+		switch.reverse!
 
-
-	#not the most elegant way to change the letters, but I was stuck with arrays and hashes. gsub! worked
-	#technically I could use this method for all of the vowels and consonats at once, but it is a little easier to read this way.
-
-	switch_first.gsub!(/[aeiou]/, "a"=>"e", "e"=>"i", "i"=>"o", "o"=>"u", "u"=>"a")
-	switch_second.gsub!(/[aeiou]/, "a"=>"e", "e"=>"i", "i"=>"o", "o"=>"u", "u"=>"a")
+		#turn the array indexes into strings
+		switch_first = switch[0].downcase
+		switch_second = switch[1].downcase
 
 
-	switch_first.gsub!(/[bcdfghjklmnpqrstvwxyz]/, "b"=>"c","c"=>"d","d"=>"f","f"=>"g","g"=>"h","h"=>"j","j"=>"k","k"=>"l","l"=>"m",
-						"m"=>"n","n"=>"p","p"=>"q","q"=>"r","r"=>"s","s"=>"t","t"=>"v","v"=>"w","w"=>"x","x"=>"y","y"=>"z","z"=>"b",)
-						
-	switch_second.gsub!(/[bcdfghjklmnpqrstvwxyz]/, "b"=>"c","c"=>"d","d"=>"f","f"=>"g","g"=>"h","h"=>"j","j"=>"k","k"=>"l","l"=>"m",
-						"m"=>"n","n"=>"p","p"=>"q","q"=>"r","r"=>"s","s"=>"t","t"=>"v","v"=>"w","w"=>"x","x"=>"y","y"=>"z","z"=>"b",)
+		#not the most elegant way to change the letters, but I was stuck with arrays and hashes. gsub! worked
+		#technically I could use this method for all of the vowels and consonats at once, but it is a little easier to read this way.
 
-	#capitalize the names
-	switch_first.capitalize!
-	switch_second.capitalize!
+		switch_first.gsub!(/[aeiou]/, "a"=>"e", "e"=>"i", "i"=>"o", "o"=>"u", "u"=>"a")
+		switch_second.gsub!(/[aeiou]/, "a"=>"e", "e"=>"i", "i"=>"o", "o"=>"u", "u"=>"a")
 
-alias_name = "#{switch_first} #{ switch_second}"
 
-final_statements = []
-spy_alias = {original_name.to_sym => alias_name}
+		switch_first.gsub!(/[bcdfghjklmnpqrstvwxyz]/, "b"=>"c","c"=>"d","d"=>"f","f"=>"g","g"=>"h","h"=>"j","j"=>"k","k"=>"l","l"=>"m",
+							"m"=>"n","n"=>"p","p"=>"q","q"=>"r","r"=>"s","s"=>"t","t"=>"v","v"=>"w","w"=>"x","x"=>"y","y"=>"z","z"=>"b",)
+							
+		switch_second.gsub!(/[bcdfghjklmnpqrstvwxyz]/, "b"=>"c","c"=>"d","d"=>"f","f"=>"g","g"=>"h","h"=>"j","j"=>"k","k"=>"l","l"=>"m",
+							"m"=>"n","n"=>"p","p"=>"q","q"=>"r","r"=>"s","s"=>"t","t"=>"v","v"=>"w","w"=>"x","x"=>"y","y"=>"z","z"=>"b",)
 
-spy_alias.each do |original_name, alias_name| 
-	final_statements << "Complete report:#{original_name} is #{alias_name}"
-end
-p spy_alias
+		#capitalize the names
+		switch_first.capitalize!
+		switch_second.capitalize!
 
-spy_report = []
-spy_report << final_statements
+		alias_name = "#{switch_first} #{ switch_second}"
+			
 
+			final_statements = []
+			spy_alias = {original_name.to_sym => alias_name}
+
+			spy_alias.each do |original_name, alias_name| 
+				final_statements << "Complete report:#{original_name} is #{alias_name}"
+				end
+			p spy_alias
+
+			
+			spy_report.push(final_statements)  
+
+	end #if loop
+
+end #until loop
 p spy_report
 #p final_statements
 
