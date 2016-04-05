@@ -66,6 +66,10 @@ class Puppy
   def dress(clothes)
     puts "The puppy is wearing #{clothes}."
   end
+  
+  def initialize
+    puts "Initializing new puppy instance..."
+  end
 
 end
 
