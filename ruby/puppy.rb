@@ -55,4 +55,12 @@ irb(main):019:0> greeting.upcase
 => "HELLO"
 irb(main):020:0> 
 	
+=end
+
+def fetch(toy)
+	puts "I brought back the #{toy}!"
+	toy
 end
+
+fetch("bone")
+
