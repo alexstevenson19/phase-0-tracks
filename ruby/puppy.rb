@@ -11,8 +11,6 @@
 		picky about territory
 <<<<<<< HEAD
 =end
-=======
-=end
 
 
 =begin
@@ -58,5 +56,17 @@ irb(main):019:0> greeting.upcase
 => "HELLO"
 irb(main):020:0> 
 	
+<<<<<<< HEAD
 end
 >>>>>>> master
+=======
+=end
+
+def fetch(toy)
+	puts "I brought back the #{toy}!"
+	toy
+end
+
+fetch("bone")
+
+>>>>>>> 6_2_pair_feature
