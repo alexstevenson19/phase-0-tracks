@@ -1,5 +1,5 @@
 
-
+# Release 01
 
 class Puppy
 
@@ -45,16 +45,18 @@ spot.roll_over
 spot.dog_years(2.5)
 spot.dress("a hat")
 
+#=========================================================================================
 
-
+# Release 02
 
 # write own Class with peer pair, in our case we chose 'students'
 # write methods for the new Class
 
 class Students
   
-  def initialize
-    puts "Initializing a new student instance..."
+  def initialize(name)
+    @name = name
+    puts "Creating student #{name}"
   end
   
   def student_condition(condition)
@@ -78,16 +80,15 @@ class Students
     number.times do puts "Written on the chalkboard: #{message}."
       end
   end
-  
-  
+   
 end
 
 
 # set up a new Array, and set a starting number to control the loop.
 classroom_report = []
 
-student_number = 1
 
+student_number = 1 #set counter to start loop (and student numbers)
 
 while student_number < 51
 
@@ -95,8 +96,8 @@ while student_number < 51
  	student_id = "student" + student_number.to_s	
  	p student_id                     #check student_id value
  	
- 	#initialize new instances of Students.
- 	student_id = Students.new        
+ 	#if you want to you can initialize new instances of Students within loop, but without assigning the names.
+ 	#student_id = Students.new        
  	
  	# 'push' to add each new instance of student to an array.
  	classroom_report.push(student_id)    
@@ -105,10 +106,11 @@ while student_number < 51
   
 end
 
-   
 
-    
- p student_id.student_condition("tired")   # just a check to see if the Student class indeed initialized outside of the loop.
+	# iterate and assign a class to the strings in the array
+	classroom_report.map!{|array| array = Students.new(array)} 
+
+# p classroom_report # print as a check
 
 
  	#iterate through the classroom_report Array, and apply methods to each student
@@ -119,9 +121,3 @@ end
     
   	end
   
-
-
-  
-  # dave = Students.new
-  # dave.student_condition("frustrated")
-  # dave.chalkboard_write(5, "2 + 2 = 4")
