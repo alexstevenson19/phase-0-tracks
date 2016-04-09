@@ -1,6 +1,9 @@
 
 class Santa
 
+	attr_reader :gender, :ethnicity
+	attr_accessor :celebrate_birthday, :get_mad_at
+
 	def initialize(name, gender, ethnicity)
 		puts "Initialing Santa instance..."
 		@name = name
@@ -22,12 +25,12 @@ class Santa
 		puts "#{@name}\'s favorite reindeer is #{@reindeer_ranking[2]}."
 	end
 
-	def celebrate_birthday=(age)  # setter method to advance age by 1 year
+	def celebrate_birthday(age)  # setter method to advance age by 1 year
 		@age = age.to_i + 1
 		puts "#{@name} is #{@age} years old."
 	end
 
-	def get_mad_at=(reindeer) # setter method to demote a bad reindeer
+	def get_mad_at(reindeer) # setter method to demote a bad reindeer
 
 		#choose reindeer santa is mad at, and move him to last place in the array
 		@bad_reindeer = @reindeer_ranking.select{|stable| stable.to_s == reindeer.to_s}
@@ -42,13 +45,14 @@ class Santa
 		puts "#{@reindeer_ranking.last} has been demoted by #{@name}." 
 	end
 
-	def gender  #getter for gender
-		@gender
-	end
-
-	def ethnicity
-		@ethnicity
-	end
+	# these getters are covered by the attr_reader at the top 
+	# def gender  #getter for gender
+		# @gender
+	# end
+# 
+	# def ethnicity
+		# @ethnicity
+	# end
 end
 
 
