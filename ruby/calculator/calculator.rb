@@ -10,4 +10,14 @@ class Calculator
   def multiply(x,y)
     x * y
   end
+
+  def divide(x,y)
+    x / y
+  end
+  
 end
+
+
+tester = Calculator.new
+
+p tester.divide(9,3)
