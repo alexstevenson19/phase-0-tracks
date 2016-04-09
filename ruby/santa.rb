@@ -21,6 +21,25 @@ class Santa
 	def fav_reindeer
 		puts "#{@name}\'s favorite reindeer is #{@reindeer_ranking[2]}."
 	end
+
+	def celebrate_birthday
+		@age += 1
+		puts "#{@name} is #{@age} years old."
+	end
+
+	def get_mad_at(reindeer)
+		#choose reindeer santa is mad at, and move him to last place in the array
+		@bad_reindeer = @reindeer_ranking.select{|stable| stable.to_s == reindeer.to_s}
+		# p @bad_reindeer # checking array values with 'p' on this line and below.
+		# p @reindeer_ranking
+		temp_stable = @reindeer_ranking - @bad_reindeer
+		# p temp_stable
+		temp_stable << reindeer.to_s
+		# p temp_stable
+		@reindeer_ranking.replace(temp_stable)
+		# p @reindeer_ranking
+		puts "#{@reindeer_ranking.last} has been demoted." 
+	end
 end
 
 
@@ -41,4 +60,5 @@ end
 
 santas[1].speak
 santas[4].fav_reindeer
-
+santas[0].celebrate_birthday
+santas[3].get_mad_at("Donner")
