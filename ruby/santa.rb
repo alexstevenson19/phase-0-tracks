@@ -1,16 +1,20 @@
 
+# Release 1, 2, and 3 are at the here at the top. Release 4, the Santa Generator is marked below.
+# The same Santa class is used throughout all of the exercises.
+
 class Santa
 
-	attr_reader :gender, :ethnicity, :name
+
+	attr_reader :gender, :ethnicity, :name, :age
 	attr_accessor :celebrate_birthday, :get_mad_at
 
 	def initialize(name, gender, ethnicity)
-		puts "Initialing Santa instance..."
+#		puts "Initialing Santa instance..."
 		@name = name
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen","Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = rand(140)
 	end
 
 	def speak
@@ -25,12 +29,12 @@ class Santa
 		puts "#{@name}\'s favorite reindeer is #{@reindeer_ranking[2]}."
 	end
 
-	def celebrate_birthday(age)  # setter method to advance age by 1 year
+	def celebrate_birthday=(age)  # setter method to advance age by 1 year
 		@age = age.to_i + 1
 		puts "#{@name} is #{@age} years old."
 	end
 
-	def get_mad_at(reindeer) # setter method to demote a bad reindeer
+	def get_mad_at=(reindeer) # setter method to demote a bad reindeer
 
 		#choose reindeer santa is mad at, and move him to last place in the array
 		@bad_reindeer = @reindeer_ranking.select{|stable| stable.to_s == reindeer.to_s}
@@ -56,20 +60,18 @@ class Santa
 end
 
 
-# sam = Santa.new
-# sam.speak
-# sam.eat_milk_and_cookies("Girl Scout Cookie")
-
 
 santas = []
-example_names = ["Sam", "Mary", "Kim", "John", "Kay", "Fay", "Spot"]
+example_names = ["Sam", "Mary", "Kim", "John", "Kay", "Fay", "Spot", "Bob", "Beth", "Jill", "William"]
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "Martian"]
 
-example_genders.length.times do |i|
-	santas << Santa.new(example_names[i], example_genders[i], example_ethnicities[i]) # the parameters/arguments from the initialize method in the class definitions
-end
+	# generate santas with the arrays above. **Note: I have added extra names and ethnicities for Release 4 below.
+	example_genders.length.times do |i|
+		santas << Santa.new(example_names[i], example_genders[i], example_ethnicities[i]) # the parameters/arguments from the initialize method in the class definitions
+	end
 
+# Outputs to test the santa array above
 santas[1].speak
 santas[4].fav_reindeer
 santas[0].celebrate_birthday = 3
@@ -84,29 +86,32 @@ puts "#{santas[5].ethnicity}"
 
 
 #===============================================================================
-# Release 4: Build Many Santas
+# Release 4: Build Many Santaz - using 'z' so I can start with a fresh array.
 
 # ask for user input to determine how many sants to make.
 
 puts "How many Santaz would you like to make today?"
 santaz_number = gets.chomp
 
+# make array to store santaz
 santaz = []
-# start loop
-santaz_number.to_i.times do
-	santaz << Santa.new(example_names.sample, example_genders.sample, example_ethnicities.sample)
-end #end for .times loop
 
-puts "Santaz name: #{santaz[2].name}, Santaz gender: #{santaz[2].gender}"
-puts "Santaz name: #{santaz[0].name}, Santaz gender: #{santaz[0].gender}"
-puts "Santaz name: #{santaz[5].name}, Santaz gender: #{santaz[5].gender}"
-puts "Santaz name: #{santaz[10].name}, Santaz gender: #{santaz[10].gender}"
+# each time through the loop change the index number for names, genders, and ethnicities
+# start loop to collect new santa data. I'm using '.sample' to randomly pick an index number.
+	santaz_number.to_i.times do
+		santaz << Santa.new(example_names.sample, example_genders.sample, example_ethnicities.sample)
+	end 
 
-	#each time through the loop change the index number for names, genders, and ethnicities
-	#store each santa at the end of the loop
 
 #after loop iterate through the array and print info about each santa
+santaz.length.times do |i| puts "Santaz info: #{santaz[i].name}, #{santaz[i].gender}, #{santaz[i].ethnicity}, #{santaz[i].age} years old."
+end
 
-# santa_collection.times do |santa| puts"#{santa.name} is #{santa.gender} and #{santa.ethnicity}
+
+
+# puts "Santaz name: #{santaz[2].name}, Santaz gender: #{santaz[2].gender}"
+# puts "Santaz name: #{santaz[0].name}, Santaz gender: #{santaz[0].gender}"
+
+
 
 
