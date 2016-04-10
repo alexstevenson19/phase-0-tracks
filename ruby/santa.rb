@@ -1,7 +1,7 @@
 
 class Santa
 
-	attr_reader :gender, :ethnicity
+	attr_reader :gender, :ethnicity, :name
 	attr_accessor :celebrate_birthday, :get_mad_at
 
 	def initialize(name, gender, ethnicity)
@@ -61,7 +61,6 @@ end
 # sam.eat_milk_and_cookies("Girl Scout Cookie")
 
 
-
 santas = []
 example_names = ["Sam", "Mary", "Kim", "John", "Kay", "Fay", "Spot"]
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
@@ -77,3 +76,37 @@ santas[0].celebrate_birthday = 3
 santas[3].get_mad_at = "Donner"
 puts "#{santas[5].gender}"
 puts "#{santas[5].ethnicity}"
+
+
+
+
+
+
+
+#===============================================================================
+# Release 4: Build Many Santas
+
+# ask for user input to determine how many sants to make.
+
+puts "How many Santaz would you like to make today?"
+santaz_number = gets.chomp
+
+santaz = []
+# start loop
+santaz_number.to_i.times do
+	santaz << Santa.new(example_names.sample, example_genders.sample, example_ethnicities.sample)
+end #end for .times loop
+
+puts "Santaz name: #{santaz[2].name}, Santaz gender: #{santaz[2].gender}"
+puts "Santaz name: #{santaz[0].name}, Santaz gender: #{santaz[0].gender}"
+puts "Santaz name: #{santaz[5].name}, Santaz gender: #{santaz[5].gender}"
+puts "Santaz name: #{santaz[10].name}, Santaz gender: #{santaz[10].gender}"
+
+	#each time through the loop change the index number for names, genders, and ethnicities
+	#store each santa at the end of the loop
+
+#after loop iterate through the array and print info about each santa
+
+# santa_collection.times do |santa| puts"#{santa.name} is #{santa.gender} and #{santa.ethnicity}
+
+
