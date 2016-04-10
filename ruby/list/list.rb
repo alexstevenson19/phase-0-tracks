@@ -11,16 +11,16 @@ class TodoList
    all_chores
  end
  
- def add_item(thing)
-    all_chores << (thing)   
+ def add_item(item_to_add)
+    all_chores << (item_to_add)   
  end
 
- def delete_item(thing)
-    all_chores.delete(thing)
+ def delete_item(item_to_delete)
+    all_chores.delete(item_to_delete)
  end
 
- def get_item(i)
-    all_chores[i]
+ def get_item(item_to_get)
+    all_chores[item_to_get]
  end
 
 end
