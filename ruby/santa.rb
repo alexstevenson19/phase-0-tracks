@@ -108,7 +108,7 @@ santaz.length.times do |i| puts "Santaz info: #{santaz[i].name}, #{santaz[i].gen
 end
 
 
-
+# the lines below were used to test the randomness before I added the iteration.
 # puts "Santaz name: #{santaz[2].name}, Santaz gender: #{santaz[2].gender}"
 # puts "Santaz name: #{santaz[0].name}, Santaz gender: #{santaz[0].gender}"
 
