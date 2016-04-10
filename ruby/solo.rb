@@ -40,7 +40,7 @@ class Snowboard_Park
 	end
 
 	def speciality(unique_feature)
-		puts "Unique to #{name}: #{unique_feature}."
+		puts "Unique to the #{name} resort: #{unique_feature}."
 	end
 
 	def current_weather
