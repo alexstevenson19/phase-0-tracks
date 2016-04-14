@@ -1,29 +1,28 @@
-
 # Virus Predictor
 
 # I worked on this challenge [by myself, with: ].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+# require_relative links to an another file relative to the current file's     location. require is used for third-party code
 #
 require_relative 'state_data'
 
 class VirusPredictor
-
+# Initializes new class and assign instance variables
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-
+# Method that calls other methods
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
-
+# all methods that follow 'private' will not be accessible for outside objects
   private
-
+# running if/elsif statements adapting formula and outputting a report
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,7 +40,7 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
+# running if/eslif statements adapting formula and outputting a report
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -83,8 +82,10 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
+STATE_DATA.each do
+  |states, state_hash| states = VirusPredictor.new(states,STATE_DATA[states][:population_density], STATE_DATA[states][:population])
+end
+
 
 #=======================================================================
 # Reflection Section
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
