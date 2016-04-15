@@ -49,8 +49,11 @@ for (var i = 0; i < animals.length; i++) {
 // console.log(longString.length > animals[i].length);
   }
 
+
+
   if (animals[0].length < animals[1].length)
   	{(delete animals[0]);}
   else {(delete animals[1]);}
 
-  console.log(animals);
+  console.log(animals[0]);
+
