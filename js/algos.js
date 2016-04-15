@@ -9,7 +9,8 @@
 // if the '0' index variable is longer, it stays the same and is compared to the next index in the array.
 // at the end print the last value of the variable, which should be the longest string.
 
-var animals = ["goat", "turtle", "cat", "elephant", "zebra"];
+
+var animals = ["goat boy", "turtle", "cat", "elephant man", "zebra"];
 
 //longAnimals = [animals[0]];
 //console.log
@@ -23,10 +24,25 @@ for (var i = 0; i < animals.length; i++) {
 	 		{(animals.shift());
 	 			console.log(animals)}
 
-	 	else //((animals[0] > animals[1]) && (animals.length > 1))  
+	else //((animals[0] > animals[1]) && (animals.length > 1))  
 	 		 {(animals.splice(1, 1));
 	 		 console.log(animals)}
+  }
 
+
+
+  if (animals[0].length < animals[1].length)
+  	{(delete animals[0]);}
+  else {(delete animals[1]);}
+
+  console.log(animals[0]);
+
+
+
+
+
+//=========================================================
+// old code below
 
 
 
@@ -47,13 +63,3 @@ for (var i = 0; i < animals.length; i++) {
 	// else {console.log("Test next animal.");}
 //		}
 // console.log(longString.length > animals[i].length);
-  }
-
-
-
-  if (animals[0].length < animals[1].length)
-  	{(delete animals[0]);}
-  else {(delete animals[1]);}
-
-  console.log(animals[0]);
-
