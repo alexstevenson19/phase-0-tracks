@@ -1,4 +1,7 @@
 
+//===============================================================
+// Release 0
+
 // I also started my brainstorms on notebook paper. I'll transcribe the basic ideas below.
 
 // build an array to test, enter that array into the function
@@ -12,11 +15,6 @@
 
 var animals = ["goat boy", "turtle", "cat", "elephant man", "zebra"];
 
-//longAnimals = [animals[0]];
-//console.log
-//longString = animals[0];
-
-//console.log(longString);
 
 for (var i = 0; i < animals.length; i++) {
 
@@ -39,12 +37,56 @@ for (var i = 0; i < animals.length; i++) {
 
 
 
+//=====================================================================
+// Release 1
+
+// loop in a loop. Take the first key value pair, have it iterate through second hash for a match.
+//                 Then the next key value pair, iterate through, etc.
+
+// more details, first match the key. If there is a match, compare the values.
+// had to find a way to pull out the key string. Object.keys(hash name)[i]
+
+object01 = {name: "Steven", age: 54};
+object02 = {name: "Tamir", age: 54};
+
+testKey = Object.keys(object01)[0];
+testKey2 = Object.keys(object02)[1];
+//for (var i = 0; i < object02.lentgh; i++) {
+//  console.log(testKey == Object.keys(object02)[0];//);
+//}
+
+keySize = Object.keys(object01).length;
+//console.log(object01.match("a"));
+//.includes()
+//console.log(object01.split(" "));
+console.log(testKey == testKey2);
+console.log(keySize);
+console.log(object01[0]==object02[0]);
+/*
+function keymatcher(ob1, ob2){
+	for 
+
+
+}
+
+*/
+
+
+
+
+
+
 
 
 //=========================================================
-// old code below
+// Release 0 old code below
 
 
+//longAnimals = [animals[0]];
+//console.log
+//longString = animals[0];
+
+//console.log(longString);
 
 
 	// if (longString.length < animals[i].length) {(longAnimals.push(animals[i]))
