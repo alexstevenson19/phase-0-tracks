@@ -44,19 +44,25 @@ for (var i = 0; i < animals.length; i++) {
 //                 Then the next key value pair, iterate through, etc.
 
 // more details, first match the key. If there is a match, compare the values.
-// had to find a way to pull out the key string. Object.keys(hash name)[i]
+
+// 
 
 object01 = {name: "Steven", age: 54};
 object02 = {name: "Tamir", age: 54};
 
+// need to find a way to pull out the key string. Object.keys(hash name)[i]
 testKey = Object.keys(object01)[0];
 testKey2 = Object.keys(object02)[1];
 //for (var i = 0; i < object02.lentgh; i++) {
 //  console.log(testKey == Object.keys(object02)[0];//);
 //}
 
+
+// need to find out how to determine a hash length.
 keySize = Object.keys(object01).length;
-//console.log(object01.match("a"));
+
+
+
 //.includes()
 //console.log(object01.split(" "));
 console.log(testKey == testKey2);
