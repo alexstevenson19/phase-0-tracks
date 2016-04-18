@@ -40,43 +40,96 @@ for (var i = 0; i < animals.length; i++) {
 //=====================================================================
 // Release 1
 
-// loop in a loop. Take the first key value pair, have it iterate through second hash for a match.
+// first idea (that didn't work):
+// loop in a loop. In the first Object/hash, key value pair, have it iterate through second hash for a match.
 //                 Then the next key value pair, iterate through, etc.
 
 // more details, first match the key. If there is a match, compare the values.
 
 // 
 
-object01 = {name: "Steven", age: 54};
-object02 = {name: "Tamir", age: 54};
+var object01 = {name: "Steven", age: 54, sport: "soccer"};
+var object02 = {name: "Tamir", age: 54, sport: "basketball"};
+
+
+// second idea: collect the keys into a new array.
+// then iterate through that array for the objects to find matches
+
+var keyCollect = []
+
 
 // need to find a way to pull out the key string. Object.keys(hash name)[i]
-testKey = Object.keys(object01)[0];
-testKey2 = Object.keys(object02)[1];
-//for (var i = 0; i < object02.lentgh; i++) {
-//  console.log(testKey == Object.keys(object02)[0];//);
-//}
+var testKey1 = Object.keys(object01)[0];
+var testKey2 = Object.keys(object02)[1];
+var testKey3 = Object.keys(object01)[2];
+
+
+keyCollect.push(testKey1, testKey2, testKey3);
+
+// none of my for loops seem to do anything? At this point I will just manually do the iteration so you can see my idea.
+for (var i = 0; i < object01.length; i++){
+	keyCollect.push(Object.keys(object01));
+}
+
+console.log (keyCollect);
+
+
+for (var i = 0; i < object01.length; i++){
+	if (object01[keyCollect[i]] == object02[keyCollect[i]]){
+		console.log("There is" + i + "match(es)");
+	}
+}
+
+console.log(object01["name"] == object02["name"])
+
+
+
+
+
+
+
+
 
 
 // need to find out how to determine a hash length.
 keySize = Object.keys(object01).length;
 
+for (var i = 0; i < object01.length; i++) {
+
+	if (object01[i] == object02[i]) {
+		console.log (object01[i]);
+	}
+	else 
+		{console.log("no matches");}
+  }
+
+
 
 
 //.includes()
 //console.log(object01.split(" "));
-console.log(testKey == testKey2);
+console.log(testKey1 == testKey2);
 console.log(keySize);
-console.log(object01[0]==object02[0]);
+console.log(object01[1]==object02[1]); 
 /*
+
 function keymatcher(ob1, ob2){
-	for 
-
-
+	for
 }
 
-*/
+var matches = [];
 
+for (var i = 0; i < keySize; i++) {
+
+if (object01[0]==object02[i])
+  	{matches.push([object02[i]]);}
+  else
+  	{console.log("no matches");}
+}
+
+console.log(matches);
+
+*/
 
 
 
