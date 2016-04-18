@@ -6,7 +6,7 @@
 // put the variable through a loop, but count down from the end to the beginning
 // put the loop in a function so you can use it with driver code
 
-conditionTest = 2==3;  // and a condition test so the reverser works when 'true'
+conditionTest = 3==3;  // and a condition test so the reverser works when 'true'
 						// add an if statement within the function to print the result or error message
 
 function reverser(str) {
