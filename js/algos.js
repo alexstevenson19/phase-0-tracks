@@ -1,4 +1,9 @@
 
+// This is the first time I haven't completed a challenge before the deadline, so I'm not quite sure what to do?
+// I will send this to GitHub and submit my link, but is there a follow-up for when it is complete, if I ever get unstuck?
+// Javascript is something I clearly don't have much of a handle on with syntax and commands.
+
+
 //===============================================================
 // Release 0
 
@@ -12,6 +17,8 @@
 // if the '0' index variable is longer, it stays the same and is compared to the next index in the array.
 // at the end print the last value of the variable, which should be the longest string.
 
+
+console.log("Release 0 ============================================")
 
 var animals = ["goat boy", "turtle", "cat", "elephant man", "zebra"];
 
@@ -44,17 +51,20 @@ for (var i = 0; i < animals.length; i++) {
 // loop in a loop. In the first Object/hash, key value pair, have it iterate through second hash for a match.
 //                 Then the next key value pair, iterate through, etc.
 
-// more details, first match the key. If there is a match, compare the values.
+// second idea: collect the keys into a new array of strings. ex. keyArray = ["name", "age", "pets", etc]
+// Then iterate through that array to plug back into the Objects/hashes to find matches. i.e. Does object["name"-from keyArray]==object2["name"]
+// if there is a match the results will be printed for example "They both have a" + pet + dog.
 
-// 
+// first set up Objects to compare
+
+console.log("Release 1 ============================================")
 
 var object01 = {name: "Steven", age: 54, sport: "soccer"};
 var object02 = {name: "Tamir", age: 54, sport: "basketball"};
 
 
-// second idea: collect the keys into a new array.
-// then iterate through that array for the objects to find matches
 
+// declare an array to collect the key string in.
 var keyCollect = []
 
 
@@ -63,7 +73,7 @@ var testKey1 = Object.keys(object01)[0];
 var testKey2 = Object.keys(object02)[1];
 var testKey3 = Object.keys(object01)[2];
 
-
+// collecting the values in a loop gave me 
 keyCollect.push(testKey1, testKey2, testKey3);
 
 // none of my for loops seem to do anything? At this point I will just manually do the iteration so you can see my idea.
@@ -80,18 +90,13 @@ for (var i = 0; i < object01.length; i++){
 	}
 }
 
+// this is what I want from the for loop above, but nothing in js seems to be working for me. I'm not even able to get error messages??
 console.log(object01["name"] == object02["name"])
 
 
+// extra things from Release 01 are below that might be useful============================
 
-
-
-
-
-
-
-
-// need to find out how to determine a hash length.
+// want to find out how to determine a hash length.
 keySize = Object.keys(object01).length;
 
 for (var i = 0; i < object01.length; i++) {
@@ -130,6 +135,65 @@ if (object01[0]==object02[i])
 console.log(matches);
 
 */
+
+//=======================================================================
+// Release 2 Random word generator
+
+// find out what random command JS has. Use that to generate a random word length, and probably unicode numbers for letters 97 -122.
+// in a function the number from the driver code will be passed in and will determine the array length.
+// make an empty array to collect the new words.
+// loop through a word generator x number of times to make random words (of various lengths, maybe just one letter longer each time up to 10) and push into the array.      
+// print the resulting array   String.fromCharCode(Math.random()*(122 - 97) + 97);
+
+
+console.log("Release 2 ============================================")
+
+// set number argument x (ex. 3)
+
+var words = 3
+
+// get random word/number lengths (y)
+
+var word_length = []
+
+
+for (var i = 0; i < words; i++){
+	var y = Math.floor(Math.random() * (10 - 1)) + 1;
+	//console.log(y);  //printed to screen to check that I was getting values
+	word_length.push(y);
+	//console.log(word_length);  //printed to screen to check that I was getting values
+}
+
+console.log(word_length);
+
+//  now I have y-length random numbers. between 97 and 122. Store the numbers in an array (set a min (3+2) and max(3*10 - 2) length). ex.[ [97, 114, 103], [122, 100, 103, 99]]
+// (old idea)loop x number of times to
+var unicode_arr = []
+var word_collect = []
+
+
+for (var i = 0; i < word_length.length; i++){
+
+	for (var i = 0; i < (word_length[i]); i++){
+		var uni = Math.floor(Math.random() * (122 - 97)) + 97;
+		unicode_arr.push(uni);
+		console.log(unicode_arr);
+	}
+	word_collect.push(unicode_arr);
+	console.log(word_collect)
+
+ }
+
+
+
+
+
+// iterate through array to convert numbers to letters. 
+
+
+
+
+
 
 
 
