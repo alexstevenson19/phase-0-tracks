@@ -1,7 +1,8 @@
 
 // This is the first time I haven't completed a challenge before the deadline, so I'm not quite sure what to do?
 // I will send this to GitHub and submit my link, but is there a follow-up for when it is complete, if I ever get unstuck?
-// Javascript is something I clearly don't have much of a handle on with syntax and commands.
+// Javascript is something I clearly don't have much of a handle on with syntax and commands. 
+// Even though it is a solo challenge is there a place to ask for help after the deadline?
 
 
 //===============================================================
