@@ -229,3 +229,82 @@ for (var i = 0; i < word_length.length; i++){
 	// else {console.log("Test next animal.");}
 //		}
 // console.log(longString.length > animals[i].length);
+
+
+//==================================================Office Hours
+
+
+
+
+// nums is the number that will be fed in for how many words to make.
+
+
+var wordCollect = []
+
+// function makeWords(num){
+//   var output = []
+//   for(var count = 0; count < num; count ++){
+//     output.push(wordMaker())
+//   }
+//   return output
+// }
+
+
+function wordmaker(nums) {
+  var output = []
+  for (var n = 0; n < nums; n++){
+    // make a random number
+    var wl = Math.floor(Math.random() * (11 - 1)) + 1;
+    console.log(wl);
+    var unicodeArr = []
+    // make a word of 7 characters. ie loop 7 times to make 7 random numbers between 97 and 122
+    for (var i = 0; i < wl; i++){
+      var uni = Math.floor(Math.random() * (122 - 97)) + 97;
+      unicodeArr.push(uni);
+    //      console.log(unicodeArr);
+    }
+    output.push(unicodeArr)
+//    wordCollect.push(unicode_arr);
+  }
+  return(output);
+}
+
+function convertToString(array){
+  var string = ''
+  console.log('starting array', array)
+  for (var charIndex = 0; charIndex < array.length; charIndex++){
+    console.log(array[charIndex], String.fromCharCode(array[charIndex]))
+    //String.fromCharCode(array[charIndex]) is the thing we want to save
+    // string <- the thing we want to make what we want and return
+    // finalPhrase += finalPhras
+    string += String.fromCharCode(array[charIndex])
+  }  
+  console.log('finished array', array, string)
+  return string
+}
+
+var count = 2
+
+var chars = wordmaker(count);
+
+console.log(chars);
+
+// console.log(wordCollect);
+
+
+var wordConvert = []
+
+// for (var wc = 0; wc < chars.length; wc++){
+//     wordConvert.push(String.fromCharCode(wordCollect[wc]));  // need the wordCollect values as integers.
+    
+// }
+// console.log(wordConvert);
+
+for (var wordIndex = 0; wordIndex < chars.length; wordIndex++){
+  wordConvert.push(convertToString(chars[wordIndex]))    
+}
+
+console.log(wordConvert.length === count)
+console.log(typeof wordConvert[0] === 'string')
+console.log(wordConvert)
+// https://github.com/mrdavidlaing/javascript-koans
