@@ -229,6 +229,7 @@ for (var i = 0; i < word_length.length; i++){
 	// else {console.log("Test next animal.");}
 //		}
 // console.log(longString.length > animals[i].length);
+<<<<<<< HEAD
 
 
 //==================================================Office Hours
@@ -308,3 +309,4 @@ console.log(wordConvert.length === count)
 console.log(typeof wordConvert[0] === 'string')
 console.log(wordConvert)
 // https://github.com/mrdavidlaing/javascript-koans
+
