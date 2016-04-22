@@ -1,4 +1,3 @@
-
 def build_array(a, b, c)
   p [a, b, c]
 end
