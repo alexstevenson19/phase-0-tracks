@@ -20,3 +20,17 @@ def set_table(settings)
 end
 
 set_table(tableware)
+
+
+#=================================== Release 01
+
+musicians = ["Bowie", "Prince", "Fry", "Petty", "Ozzy" ]
+
+musician_status = {bowie: "deceased", prince: "deceased", fry: "deceased", petty: "living", ozzy: "living"}
+
+musicians.each {|musician| puts "#{musician} ROCKS!" }
+
+musicians.map! {|musician| musician.upcase }
+p musicians
+
+musician_status.each {|musician, status| puts "#{musician.capitalize} is #{status}" }
