@@ -9,10 +9,9 @@ interior_info = {}
 
 # prompt and get answers
 puts "Please enter the client's full name."
-interior_info[:name] = gets.chomp.capitalize
+interior_info[:name] = gets.chomp
 
 puts "Please enter the client's age."
-#age_convert = gets.chomp
 interior_info[:age] = gets.chomp.to_i
 
 puts "How many residents live in the space?"
@@ -53,19 +52,35 @@ interior_info[:walls] = gets.chomp
 puts "What special feature(s) would you like? (ex. climbing wall, hot air balloon pad,..."
 interior_info[:feature] = gets.chomp
 
-puts "Please review the following information: #{interior_info}.\n
-If there are changes please type the category you would like to change: 
-	'name', 'age', 'residents', 'pets', 'walls', 'feature', \n or type 'done'."
+
+
+# offer the user to edit client information, before final report
+puts "Please review the following information:"
+puts "#{interior_info}.\n Please type 'done' or please type any category you would like to edit: 
+	'name', 'age', 'residents', 'pets', 'walls', 'feature'"
 change_key = gets.chomp
 
-	if interior_info.has_key?(change_key.to_sym)
+	if change_key == "pets"
+		puts "Please input 'y' or 'n'."
+				pet_string = gets.chomp
+					if pet_string == "y"
+						interior_info[change_key.to_sym] = true
+					else pet_string == "n"
+						interior_info[change_key.to_sym] = false
+					# else
+					# 	valid_pet = false
+					end
+
+	elsif interior_info.has_key?(change_key.to_sym)
 		puts "Please enter the updated information:" 
 		interior_info[change_key.to_sym] = gets.chomp
 	elsif change_key.downcase == "done"
 		puts "Thank you, here is the final report:"
 	else
-		puts "I can not make that change."
+		puts "Sorry, I can not make that change. Here is your report:"
 	end
 
 
-p interior_info
+puts "#{interior_info}"
+
+
