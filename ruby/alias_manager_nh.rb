@@ -16,10 +16,8 @@
 
 
 def switch_maker(real_name)
-
-	real_name.map!{ |disguise| disguise.split('')}
-	
-	p real_name
+	real_name.map!{ |disguise| disguise.split('')}	
+	#real_name
 end
 
 
@@ -32,52 +30,33 @@ def alias_maker(input_name)
 				's'=> 't','t'=> 'v','u'=> 'a','v'=> 'w','w'=> 'x','x'=> 'y','y'=> 'z','z'=> 'b')
 		end
 	end
-
-
-	p input_name
-
+	#input_name
 end
+
 
 def polish(disguise)
-	disguise.map! do |sub_name|
-		sub_name.join('')
-
-#		sub_name.map!{|arr| arr[0].capitalize}
-	end
+	disguise.map! { |sub_name|sub_name.join('')}
+	disguise.map! { |cap| cap.capitalize!}
+	disguise.to_s
 end
 
 
-#puts "Please enter your name:"
-# name = gets.chomp
-
-name = "John Smith"
 
 
-new_name = name.downcase!.split(' ')
 
-new_name.reverse!
+puts "Please enter your name:"
+name = gets.chomp
 
-switch_maker(new_name)
+	new_name = name.downcase.split(' ')
+	new_name.reverse!
 
-puts "#{new_name}"
-
-alias_maker(new_name)
-
-puts "#{new_name}"
-
-polish(new_name)
-
-puts "#{new_name}"
+		# put the reversed name through the switch, alias, and polish methods.
+		switch_maker(new_name)
+	
+		alias_maker(new_name)
+	
+		polish(new_name)
 
 
-# a = [1, 2, 3]
-# 
-# def mutate(array)
-  # array.pop
-# end
-# 
-# p "Before mutate method: #{a}"
-# p mutate(a)
-# p "After mutate method: #{a}"
-# 
-# 
+puts "#{new_name[0]} #{new_name[1]} was once know as #{name}"
+
