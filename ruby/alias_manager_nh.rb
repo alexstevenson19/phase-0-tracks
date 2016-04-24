@@ -4,15 +4,19 @@
 	- reverse the array to make the first and last names switch
 
 	- put the word in a method to change the vowels and consonants.
-	- when the method is called and argument sent in
+		- when the method is called and argument sent in
+		  iterate through the string and substitute the proper letters
 
-		iterate through the string and sub the proper letters
+	- make a method to clean up the output, join the letters back into words/strings
+	  capitalize the names
 
 	- add a user interface
 
-	- lastly, make a loop and store the original name (key) with its new alias (value)
-
+	- make a loop and store the original name (key) with its new alias (value) in a hash
+	- lastly output a report of names and aliases from the spy name hash
 =end
+
+
 
 # methods =============================================
 
@@ -43,7 +47,6 @@ end
 
 # end methods ==========================================
 
-# start progam below
 
 spy_collector = {}  #for final report
 
@@ -77,4 +80,7 @@ spy_collector.delete('done')
 
 puts "Spy report:"
 spy_collector.each{|real, spy|puts "#{real} is in disguise as #{spy[0]} #{spy[1]}"}
+
+
+
 
