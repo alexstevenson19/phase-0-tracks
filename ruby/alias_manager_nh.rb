@@ -11,9 +11,13 @@
 			also have an exception for the consanants that would become vowels. 
 			ex if .ord number==97 || .ord number ==110, etc  ord number = ord number + 2
 
+	- add a user interface
+
+	- lastly, make a loop and store the original name (key) with its new alias (value)
+
 =end
 
-
+# methods =============================================
 
 def switch_maker(real_name)
 	real_name.map!{ |disguise| disguise.split('')}	
@@ -40,23 +44,40 @@ def polish(disguise)
 	disguise.to_s
 end
 
+# end methods ==========================================
+
+# start progam below
+
+spy_collector = {}  #for final report
 
 
+valid_input = false
 
+until valid_input
 
-puts "Please enter your name:"
-name = gets.chomp
-
-	new_name = name.downcase.split(' ')
-	new_name.reverse!
-
-		# put the reversed name through the switch, alias, and polish methods.
-		switch_maker(new_name)
+	puts "Please enter a name, or type 'done' when finished:"
+	name = gets.chomp
+		if name.downcase == "done"
+			name.downcase!
+			valid_input = true
+		else
+		new_name = name.downcase.split(' ')
+		new_name.reverse!
 	
-		alias_maker(new_name)
-	
-		polish(new_name)
+			# put the reversed name through the switch, alias, and polish methods.
+			switch_maker(new_name)
+		
+			alias_maker(new_name)
+		
+			polish(new_name)
+		end
 
+	spy_collector[name] = new_name
+		
+end
 
-puts "#{new_name[0]} #{new_name[1]} was once know as #{name}"
+spy_collector.delete('done')
+
+puts "Spy report:"
+spy_collector.each{|real, spy|puts "#{real} is in disguise as #{spy[0]} #{spy[1]}"}
 
