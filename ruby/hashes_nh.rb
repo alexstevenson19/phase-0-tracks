@@ -66,9 +66,7 @@ change_key = gets.chomp
 					if pet_string == "y"
 						interior_info[change_key.to_sym] = true
 					else pet_string == "n"
-						interior_info[change_key.to_sym] = false
-					# else
-					# 	valid_pet = false
+						interior_info[change_key.to_sym] = fals
 					end
 
 	elsif interior_info.has_key?(change_key.to_sym)
