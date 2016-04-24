@@ -1,15 +1,12 @@
 
 =begin 
-	- split the string into an array
+	- put the names into an array
 	- reverse the array to make the first and last names switch
 
-	- put the word in a method to change the vowels and consonants. Of course I could do this with gsub, but will try an alternative method.
+	- put the word in a method to change the vowels and consonants.
 	- when the method is called and argument sent in
-		1. downcase the string
 
-		iterate through the string with special case statements for the vowels
-			also have an exception for the consanants that would become vowels. 
-			ex if .ord number==97 || .ord number ==110, etc  ord number = ord number + 2
+		iterate through the string and sub the proper letters
 
 	- add a user interface
 
