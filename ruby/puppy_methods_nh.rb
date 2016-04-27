@@ -12,7 +12,7 @@ class Puppy
   end
   
   def speak(x)
-  x.times {puts "Woof"}
+  	x.times {puts "Woof"}
   end
   
   def roll_over
@@ -29,9 +29,10 @@ class Puppy
     end
       
   end
-     def shake(y) 
-       y.times {puts "Shake paw!"}
-     end
+
+  def shake(y) 
+    y.times {puts "Shake paw!"}
+  end
   
   def initialize
     puts "Initializing new puppy instance..."
