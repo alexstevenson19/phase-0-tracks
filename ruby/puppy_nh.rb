@@ -1,5 +1,17 @@
 
+=begin
+	SPECIES - Canine
 
+	Characteristics -
+		surface: furry
+		transportation: four legs 
+		personality: loyal, energetic
+
+	Behavior -
+		recognizes and responds to given name
+		enjoys the park
+		tap dances on cue
+=end
 
 
 
