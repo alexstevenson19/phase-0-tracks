@@ -8,7 +8,7 @@ attributes: species: suggestions: human, martian, octopus, robot, Vulcan
 methods: honest - 4 random cards (1..11), 
 		 bottom_of_deck, 3 random cards (5..11)
 		 kindly_grandmother - 3 random cards (1..8), 
-		 Carnac - two cards ace and king - instant win! 
+		 Carnac the Magnificent - two cards ace and king - instant win! 
 
 =end
 
