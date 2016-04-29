@@ -8,7 +8,7 @@ attributes: species: suggestions: human, martian, octopus, robot, Vulcan
 methods: honest - 4 random cards (1..11), 
 		 bottom_of_deck, 3 random cards (5..11)
 		 kindly_grandmother - 3 random cards (1..8), 
-		 Karnak - two cards ace and king - instant win! 
+		 Carnac - two cards ace and king - instant win! 
 
 =end
 
@@ -56,7 +56,7 @@ class Black_jack_dealer
 				puts "You won! It's really your lucky day."
 				true
 			else
-				puts "I'm afraid I'm gonna need a bit more of your pinky finger between these here cutters..."
+				puts "I'm afraid I'm gonna need a bit more of your pinky finger between these here bolt cutters..."
 				false
 			end
 	end
@@ -77,6 +77,10 @@ class Black_jack_dealer
 			end
 	end
 
+	def carnac
+		puts "Here are your cards: 10, 11... Blackjack!!!"
+		true
+	end
 
 end
 
@@ -89,6 +93,7 @@ p dave.appendages
 dave.honest
 dave.bottom_of_deck
 dave.soft_spot
+dave.carnac
 
 
 
