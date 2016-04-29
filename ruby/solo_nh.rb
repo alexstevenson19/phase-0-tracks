@@ -112,17 +112,9 @@ case
 	
 end
 
+
 =begin
-deal = ["honest", "bottom_of_deck", "soft_spot", "carnac"]
-
-play = deal.sample
-
-dave.play
-
-
-	user interaction. put the methods in an array [honest, bottom, soft, carnac]
-	ask the player to play or cash out. If play, choose a this_hand = array.sample
-											or dave.(array.sample)
+	ask the player to play or cash out. If play, pick random number for case statement.
 =end
 
 
