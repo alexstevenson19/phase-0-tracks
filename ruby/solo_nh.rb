@@ -95,5 +95,37 @@ dave.bottom_of_deck
 dave.soft_spot
 dave.carnac
 
+# when user types play, set a variable to a number 1..10
+play = rand(1..10)
+
+p play
+
+case 
+	when play >=8 && play <=10
+		then dave.honest
+	when play >=5 && play <=7
+		then dave.bottom_of_deck
+	when play >=2 && play <=4
+		then dave.soft_spot
+	when play == 1
+		then dave.carnac
+	
+end
+
+=begin
+deal = ["honest", "bottom_of_deck", "soft_spot", "carnac"]
+
+play = deal.sample
+
+dave.play
+
+
+	user interaction. put the methods in an array [honest, bottom, soft, carnac]
+	ask the player to play or cash out. If play, choose a this_hand = array.sample
+											or dave.(array.sample)
+=end
+
+
+
 
 
