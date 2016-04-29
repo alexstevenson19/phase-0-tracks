@@ -24,7 +24,7 @@ class Black_jack_dealer
 		@species = species
 		@appendages = appendages.to_i
 		@bowtie = "red & black polka dots"
-
+		@cash_out = {}
 	end
 
 
@@ -61,6 +61,22 @@ class Black_jack_dealer
 			end
 	end
 
+	def soft_spot
+		@card1 = rand(1..9)
+		@card2 = rand(1..11)
+		@card3 = rand(1..10)
+		puts "Here are your cards: #{@card1}, #{@card2}, #{@card3}"
+
+		soft = @card1 + @card2 + @card3
+			if soft <= 21
+				puts "You won! Go getcha' something nice."
+				true
+			else
+				puts "I'm sure your luck will change. Give it another try, here's a chip."
+				false
+			end
+	end
+
 
 end
 
@@ -72,6 +88,7 @@ p dave.appendages
 
 dave.honest
 dave.bottom_of_deck
+dave.soft_spot
 
 
 
