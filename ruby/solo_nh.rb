@@ -95,7 +95,8 @@ class Blackjack_dealer
 
 end
 
-#Enter casino========================================================================
+
+#Enter space casino ========================================================================
 cashout = false
 
 puts "Welcome to the Intergalactic Orion's Belt Casino. Come win some credits to get off this rock!"
@@ -103,7 +104,7 @@ puts "**********"
 
 
 until cashout
-	puts "Type 'play' to go to a blackjack table or type 'exit' to cash out."
+	puts "Type 'play' to go to a space blackjack table or type 'exit' to cash out."
 	gamble = gets.chomp
 
 	if gamble.downcase == "exit"
@@ -120,12 +121,11 @@ until cashout
 		
 		puts "By the way, what color or pattern is the dealer's bowtie?"
 		bow_color = gets.chomp
-		
 		dealer.bowtie(bow_color)
 		
 		
+
 		# play blackjack ================================================================
-		
 		games = {}
 		
 		valid_input = false
@@ -133,7 +133,7 @@ until cashout
 		
 		until valid_input	
 		
-			puts "Play or leave table? Please type 'p' to play or 'q' to quit."
+			puts "Play or leave table? (type 'p' or 'q')"
 			deal = gets.chomp
 			puts "----------------"
 			
@@ -158,11 +158,11 @@ until cashout
 		end
 		
 	games.delete(game_counter) #deleting the last key that was made when the loop ended on quit.
+	
 	dealer.game_report(games)
 
 
 	end
-
 
 
 end
