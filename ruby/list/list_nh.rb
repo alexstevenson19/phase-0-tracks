@@ -16,13 +16,14 @@ class TodoList
 		@array.push(item)
 	end
 
+	def delete_item(item)
+		@array.delete(item)
+	end
 
+	def get_item(i)
+		@array.fetch(i)
+	end
 end
 
 
 
-#new_list = TodoList.new(["do the dishes", "mow the lawn"])
-
-
-
-#p new_list.get_items
