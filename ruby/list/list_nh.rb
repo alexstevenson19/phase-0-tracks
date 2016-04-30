@@ -1,8 +1,9 @@
 
+# make a class to pass the todo_list_spec.rb Rspec tests.
+
 class TodoList
 	
-#	attr_accessor :arr
-	
+#	attr_accessor :arr	
 
 	def initialize(array)
 		@array = array

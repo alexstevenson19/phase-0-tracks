@@ -1,4 +1,6 @@
-require_relative 'list'
+# Note: this test file links to the new Nighthawk list file - "list_nh.rb", not "list.rb"
+
+require_relative 'list_nh'
 
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
