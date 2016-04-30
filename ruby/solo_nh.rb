@@ -167,6 +167,7 @@ until cashout
 
 end
 
+puts "Thank you for visiting the Orion's Belt Casino. Please come again."
 
 
 
