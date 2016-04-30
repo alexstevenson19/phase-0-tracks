@@ -10,23 +10,28 @@ methods: honest - 4 random cards (1..11),
 		 kindly_grandmother - 3 random cards (1..8), 
 		 Carnac the Magnificent - two cards ace and king - instant win! 
 
+interface - ask the player to play or cash out. If play, pick random number for case statement.
 =end
 
 
+# Blackjack class====================================================================
 
-class Black_jack_dealer
+class Blackjack_dealer
 
-	attr_accessor :species, :appendages 
-	attr_reader	:bowtie
+	attr_accessor :species, :appendages, :bowtie
+	#attr_reader	
 
 	def initialize(species, appendages)
 		puts "Shuffling the deck..."
 		@species = species
 		@appendages = appendages.to_i
-		@bowtie = "red & black polka dots"
-		@cash_out = {}
+		#@cash_out = {}
 	end
 
+	def bowtie(color)
+		puts"You can always trust someone wearing a #{color} bowtie."
+		@color = color
+	end
 
 	def honest
 		@card1 = rand(1..11)
@@ -85,33 +90,61 @@ class Black_jack_dealer
 end
 
 
-dave = Black_jack_dealer.new("Martian", 4)
 
-p dave.species
-p dave.appendages
+# Make a dealer ===============================================================
 
-dave.honest
-dave.bottom_of_deck
-dave.soft_spot
-dave.carnac
+puts "Welcome to the Intergalactic Orion's Belt Casino. Come win some credits to get off this rock!"
+puts "**********"
+puts "Pick a blackjack table. What species is the dealer? (ex. human, martian, octopus, robot, Vulcan...)"
+species = gets.chomp
+puts "How many dealing arms/appendages/tentacles does the dealer have?"
+appendages = gets.chomp.to_i
 
-# when user types play, set a variable to a number 1..10
-play = rand(1..10)
+dealer = Blackjack_dealer.new(species, appendages)
 
-p play
+puts "By the way, what color or pattern is the dealer's bowtie?"
+bow_color = gets.chomp
 
-case 
-	when play >=8 && play <=10
-		then dave.honest
-	when play >=5 && play <=7
-		then dave.bottom_of_deck
-	when play >=2 && play <=4
-		then dave.soft_spot
-	when play == 1
-		then dave.carnac
+dealer.bowtie(bow_color)
+
+
+# play blackjack ============================================================
+
+cash_out = {}
+
+valid_input = false
+game_counter = 0
+
+until valid_input
+
 	
+
+	puts "Play or cash out? Please type 'p' to play or 'q' to quit."
+	table = gets.chomp
+	puts "----------------"
+	
+	if table.downcase == "q"
+		valid_input = true
+	else
+		play = rand(1..10)
+		case 
+			when play >=8 && play <=10
+				then result = dealer.honest
+			when play >=5 && play <=7
+				then result = dealer.bottom_of_deck
+			when play >=2 && play <=4
+				then result = dealer.soft_spot
+			when play == 1
+				then result = dealer.carnac	
+		end	
+	end
+	game_counter += 1
+	p game_counter
+	cash_out[game_counter] = result
+
 end
 
+p cash_out
 
 =begin
 	ask the player to play or cash out. If play, pick random number for case statement.
