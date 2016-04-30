@@ -12,6 +12,10 @@ class TodoList
 		@array
 	end
 
+	def add_item(item)
+		@array.push(item)
+	end
+
 
 end
 
