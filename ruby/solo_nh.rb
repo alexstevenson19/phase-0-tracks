@@ -11,6 +11,8 @@ methods: honest - 4 random cards (1..11),
 		 Carnac the Magnificent - two cards ace and king - instant win! 
 
 interface - ask the player to play or cash out. If play, pick random number for case statement.
+
+final report - iterate through the cashout hash and make a report.
 =end
 
 
@@ -29,7 +31,7 @@ class Blackjack_dealer
 	end
 
 	def bowtie(color)
-		puts"You can always trust someone wearing a #{color} bowtie."
+		puts"You can always trust a #{species} wearing a #{color} bowtie."
 		@color = color
 	end
 
@@ -45,7 +47,7 @@ class Blackjack_dealer
 				puts "You won!"
 				true
 			else
-				puts "Gee, better luck next time."
+				puts "Sorry, better luck next time."
 				false
 			end
 	end
@@ -87,6 +89,11 @@ class Blackjack_dealer
 		true
 	end
 
+	def game_report(cashout)
+		win_record = cashout.select{|game, wins| wins == true}
+		puts "You played #{cashout.length} times and won #{win_record.length} time(s)."
+	end
+
 end
 
 
@@ -115,9 +122,7 @@ cash_out = {}
 valid_input = false
 game_counter = 0
 
-until valid_input
-
-	
+until valid_input	
 
 	puts "Play or cash out? Please type 'p' to play or 'q' to quit."
 	table = gets.chomp
@@ -144,11 +149,12 @@ until valid_input
 
 end
 
+
+cash_out.delete(game_counter) #deleting the last key that was made when the loop ended on quit.
 p cash_out
 
-=begin
-	ask the player to play or cash out. If play, pick random number for case statement.
-=end
+dealer.game_report(cash_out)
+
 
 
 
