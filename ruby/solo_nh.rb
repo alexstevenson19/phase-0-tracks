@@ -12,7 +12,9 @@ methods: honest - 4 random cards (1..11),
 
 interface - ask the player to play or cash out. If play, pick random number for case statement.
 
-final report - select the number of wins in the cashout hash and make a report.
+final report - select the number of wins in the game record hash and make a report.
+
+ask the user if they would like to switch tables or cash out and exit.
 =end
 
 
