@@ -10,10 +10,11 @@ var str2 = "Ohayo Gozaimasu."
 var rev = [];
 
 
-
 function reverse(word){
-  for (var i = 0; i < word.length; i++) {
-  	  console.log(word[i]);
+	down = (word.length);
+  for (var i = 0; i <= word.length; i++) {
+  	  console.log(word[down]);
+  	  down -=1;
   }
 }
 
