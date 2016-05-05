@@ -22,10 +22,15 @@ function reverse1(word){
 
 // second solution that is better and I will add the conditionals to.
 function reverse2(word){
+  if (tester){
 	for (var i = word.length; i >= 0; i--) {
 		rev.push(word[i]);
 	}
 	console.log(rev.join(''));
+  }
+  else {
+  	console.log("Sorry, out of order today.");
+  }
 }
 
 
@@ -34,6 +39,7 @@ function reverse2(word){
 var str1 = "Hello There!";
 var str2 = "Ohayo Gozaimasu."
 
+tester = 1==2
 
 reverse1(str1);
 reverse2(str2);
