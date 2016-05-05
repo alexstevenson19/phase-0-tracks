@@ -11,10 +11,15 @@ var rev = [];
 
 // first solution that is a bit clunky
 function reverse1(word){
-	down = (word.length);
-  for (var i = 0; i <= word.length; i++) {
-  	  console.log(word[down]);
-  	  down -=1;
+  if (tester){
+    down = (word.length);
+    for (var i = 0; i <= word.length; i++) {
+    	  console.log(word[down]);
+    	  down -=1;
+    }
+  } 
+  else {
+  	console.log("Sorry, out of order today.");
   }
 }
 
