@@ -98,3 +98,33 @@ end
 
 #=======================================================================
 # Reflection Section
+=begin
+  1. What are the differences between the two different hash syntaxes in the state_data file?
+     The outer hash uses strings for the key. The inner hashes (that are also values) use symbols. 
+     The symbols only take up a single space in memory essentially, and will run faster due to how they are handled by the program.
+
+  2. require_relative vs. require.
+     (copied from line 8 above) The require_relative calls a file that is in the same shared folder. Generally used to access files you have created.
+     Require can do a wider search, and access files that you may be using, but not ones you created.
+
+  3. Ways to iterate through a hash.
+     You can use '.each' method as we did above, with two variables in the block, one for the key and one for the value. 
+     Depending on what you need it looks like the .fetch, .keep_if, .reject, and .select methods will also iterate through a hash.
+
+  4. What stood out when refactoring virus effects?
+     The instance variables have universal scope within the class, so they didn't need to be fed in as arguments in the individual methods within the class.
+
+  5. Solidify?
+     In this case it was good to work through iterating through the hash again. The first time I did this as a Pocket Gopher I was staring at the
+     driver code, and ended up writing a solution that worked right away (which was a nice shock). This time I started making things too complicated
+     with extra variable and such. It was also different in working with a different pair, which added different insights.
+     As well, this time the exercise when "private" is moved above the virus_effects method made the definition a lot clearer than I remembered.
+
+=end
+
+
+
+
+
+
+
