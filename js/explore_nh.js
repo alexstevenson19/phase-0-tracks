@@ -15,11 +15,13 @@ var rev = [];
 function reverse1(word){
   if (tester){
     down = (word.length);
+    line = ""
     for (var i = 0; i <= word.length; i++) {
-    	  console.log(word[down]);
+    	line += word[down];
+    	  //console.log(word[down]);
     	  down -=1;
     }
-
+    console.log(line);
   } 
   else {
   	console.log("Sorry, out of order today.");
