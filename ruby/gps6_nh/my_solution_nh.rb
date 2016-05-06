@@ -7,7 +7,7 @@
 # EXPLANATION OF require_relative
 #
 #
-require_relative 'state_data'
+require_relative 'state_data_nh'
 
 class VirusPredictor
 
