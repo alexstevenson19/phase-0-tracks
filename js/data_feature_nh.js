@@ -14,7 +14,12 @@ horseColor.push("silver");
 // console.log(horseColor);
 
 
+
+
 //RELEASE 1: OBJECT 
+// loop through arrays of same length, and match the same index number in each in a new Object(hash)
+// the horse name acts as the key, the horse color acts as the value.
+
 console.log("==========================================\n");
 
 var horse = {};
@@ -25,8 +30,10 @@ for (var i = 0; i < horseName.length; i++) {
    console.log(horse);
 
 
-//RELEASE 2: CONSTRUCTOR
 
+
+//RELEASE 2: CONSTRUCTOR
+// make a car constructor. Assign initial attributes. Also add some functions to the car constructor.
 console.log("==========================================\n");
 
 function Car(brand, seats, allWheelDrive){
@@ -35,11 +42,10 @@ function Car(brand, seats, allWheelDrive){
   this.seats = seats;
   this.allWheelDrive = allWheelDrive;
   
- console.log("Building a new car");
+  console.log("Building a new car");
   
   this.jump = function(){console.log("The " + brand + " is jumping over a drawbridge.");};
   this.seatChange = function(){this.seats = 3;};
-  
 }
 
 
@@ -59,3 +65,4 @@ newCar3.seatChange();
 console.log(newCar3);
 
 console.log("==========================================\n");
+
