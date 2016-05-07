@@ -12,6 +12,7 @@
 var rev = [];
 
 // first solution that is a bit clunky
+// help from Julie Moon to use the "+" hint to get the result printed on one line, (but always ends up with an undefined message?).
 function reverse1(word){
   if (tester){
     down = (word.length);
