@@ -8,32 +8,34 @@ console.log("Release 0 ============================================")
 
 
 
-var animals = ["goat boy", "e123hant man", "turtle", "cat", "elephant man", "zebra"];
-var longest = [];
+var animals = ["goat boy", "turtle", "cat", "elephant man", "zebra"];
+var bikes = ["Cannondale", "Trek", "Giant", "LeMond", "Fuji"];
+//var longest = [];
 
-for (var i = 0; i < animals.length; i++) {
 
-	if (animals[0].length < animals[1].length) //&& (animals.length > 1))
-	 		{(animals.shift());
-	 			console.log(animals);}
-	else if (animals[0].length > animals[1].length)  
-	 		 {(animals.splice(1, 1));
-	 		 console.log(animals);}
-	else {longest.push(animals.shift);}
+var max = function(array) {
+  var biggest = array[0];
+
+  for (var i=0; i < array.length; i++) {
+    if (array[i].length >= biggest.length) {
+      biggest = array[i];
+    }
   }
 
+  return biggest;
+};
 
-  if (animals[0].length < animals[1].length)
-  	longest.push(animals.pop());
-// 	{(delete animals[0]);}
-  else
-  	longest.push(animals.shift());
-//  else {(delete animals[1]);}
+console.log(max(animals));
+console.log(max(bikes));
 
-console.log(animals[0]);
-console.log(longest);
-
+//console.log(max(longest));
+console.log("\n")
+console.log("Release 1 ============================================")
 
 
+
+
+console.log("\n")
+console.log("Release 2 ============================================")
 
 
