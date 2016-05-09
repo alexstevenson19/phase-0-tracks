@@ -79,7 +79,7 @@ console.log("Release 2 ============================================")
 // in a function the number from the driver code will be passed in and will determine the array length.
 // make an empty array to collect the new words.
 // loop through a word generator x number of times to make random words (of various lengths, maybe just one letter longer each time up to 10) and push into the array.      
-// print the resulting array   String.fromCharCode(Math.random()*(122 - 97) + 97);
+// print the resulting array.join   String.fromCharCode(Math.random()*(122 - 97) + 97);
 
 var wordCollect = []
 
@@ -102,10 +102,35 @@ function wordmaker(nums) {
   return(output);
 }
 
-var count = 2
+function convertToString(array){
+  var string = ''
+  //console.log('starting array', array)  //print to check values
+  for (var charIndex = 0; charIndex < array.length; charIndex++){
+    //console.log(array[charIndex], String.fromCharCode(array[charIndex]))    //print to check values
+
+    //String.fromCharCode(array[charIndex]) is the thing we want to save
+    // string <- the thing we want to make what we want and return
+    // finalPhrase += finalPhrase
+    string += String.fromCharCode(array[charIndex])
+  }  
+  //console.log('finished array', array, string)   //print to check values
+  return string
+}
+
+
+//driver code and convert=======================================
+var count = 5
 
 var chars = wordmaker(count);
-console.log(chars);
+//console.log(chars);   //print to check values
 
+var wordConvert = []
 
+for (var wordIndex = 0; wordIndex < chars.length; wordIndex++){
+  wordConvert.push(convertToString(chars[wordIndex]))    
+}
+
+// final print in string form.
+console.log(wordConvert.join(' '));
+console.log(max(wordConvert));
 
