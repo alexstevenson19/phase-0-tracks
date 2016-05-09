@@ -25,6 +25,17 @@ console.log(max(animals));
 console.log(max(bikes));
 
 
+
+
+
+
+
+
+
+
+
+
+
 console.log("\n")
 console.log("Release 1 ============================================")
 //write a function that takes two objects and checks to see if the objects share at least one key-value pair.
@@ -51,7 +62,7 @@ var findMatch = function(x) { return (object01[x]) == object02[x];};
 
 function report(matchArr, obj1){
   for (var i = 0; i < matchArr.length; i++){
-	return (matchArr + " is/are the same in both objects.");
+	return(matchArr + " is/are the same in both objects.");
   }
 }
 //------------------------------------------------------------
@@ -64,13 +75,15 @@ keyCollect = [];
 keyCollect = kCollector(object01, object02);
 console.log(keyCollect);
 
-//console.log(object01[keyCollect[2]]);
 
-
-//
 var matcher = select(keyCollect, findMatch);
 console.log(matcher);
 console.log(report(matcher, object01));
+
+
+
+
+
 
 
 
@@ -114,8 +127,8 @@ function convertToString(array){
   for (var charIndex = 0; charIndex < array.length; charIndex++){
     //console.log(array[charIndex], String.fromCharCode(array[charIndex]))    //print to check values
 
-    //String.fromCharCode(array[charIndex]) is the thing we want to save
-    // string <- the thing we want to make what we want and return
+    //String.fromCharCode(array[charIndex]) is the thing I want to save
+    // string <- the thing we want to make what I want and return
     // finalPhrase += finalPhrase
     string += String.fromCharCode(array[charIndex])
   }  
