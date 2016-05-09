@@ -31,6 +31,10 @@ console.log("Release 1 ============================================")
 //Use the "select method" to loop through the Objects to compare the keys/value pairs. Store the matches in a new object?
 //A slight adjustment, I will collect the keys of one of the objects in an array, and hopefully be able to iterate through the keys to get value comparisons.
 
+function kCollector(obj1, obj2) {
+  return Object.keys(obj1);
+};
+
 var select = function(keyCollect, func) {
   var results = [];
 
@@ -39,25 +43,22 @@ var select = function(keyCollect, func) {
       results.push(keyCollect[i]);
     }
   }
-
   return results;
 };
 
+var findMatch = function(x) { return (object01[x]) == object02[x];};
 
 
-
-function kCollector(obj1, obj2) {
-  var results = [];
-
-  for (var i=0; i < obj1.length; i++) {
-      Object.keys(obj1);;
+function report(matchArr, obj1){
+  for (var i = 0; i < matchArr.length; i++){
+	return (matchArr + " is/are the same in both objects.");
   }
-  return Object.keys(obj1);
-  //return results;
-};
+}
+//------------------------------------------------------------
 
-var object01 = {name: "Steven", age: 54, sport: "soccer"};
-var object02 = {name: "Tamir", age: 54, sport: "basketball"};
+
+var object01 = {name: "Steven", age: 54, sport: "soccer", movie: "stars", music: "rock"};
+var object02 = {name: "Tamir", age: 54, sport: "basketball", movie: "stars", posters: "rock"};
 
 keyCollect = [];
 keyCollect = kCollector(object01, object02);
@@ -65,10 +66,14 @@ console.log(keyCollect);
 
 //console.log(object01[keyCollect[2]]);
 
-var findMatch = function(x) { return (object01[x]) == object02[x];};
+
 //
 var matcher = select(keyCollect, findMatch);
 console.log(matcher);
+console.log(report(matcher, object01));
+
+
+
 
 
 
@@ -119,7 +124,7 @@ function convertToString(array){
 }
 
 
-//driver code and convert=======================================
+//driver code and convert-------------------------------------
 var count = 5
 
 var chars = wordmaker(count);
