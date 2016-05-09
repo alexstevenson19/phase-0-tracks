@@ -29,6 +29,7 @@ console.log("\n")
 console.log("Release 1 ============================================")
 //write a function that takes two objects and checks to see if the objects share at least one key-value pair.
 //Use the "select method" to loop through the Objects to compare the keys/value pairs. Store the matches in a new object?
+//A slight adjustment, I will collect the keys of one of the objects in an array, and hopefully be able to iterate through the keys to get value comparisons.
 
 //var select = function(obj1, obj2, func) {
 //  var results = [];
@@ -52,23 +53,24 @@ console.log("Release 1 ============================================")
 //console.log(matcher);
 
 
-function matcher(obj1, obj2) {
+function kCollector(obj1, obj2) {
   var results = [];
 
   for (var i=0; i < obj1.length; i++) {
-    if ((obj1[i].toString()).match(obj2[i].toString())) {
-      results.push(obj1[i]);
-    }
+      Object.keys(obj1);;
   }
-
-  return results;
+  return Object.keys(obj1);
+  //return results;
 };
 
 var object01 = {name: "Steven", age: 54, sport: "soccer"};
 var object02 = {name: "Tamir", age: 54, sport: "basketball"};
 
-console.log(matcher(object01, object02))
+keyCollect = [];
+keyCollect = kCollector(object01, object02);
+console.log(keyCollect);
 
+//console.log(object01[keyCollect[2]]);
 
 
 
