@@ -74,7 +74,38 @@ console.log(matcher(object01, object02))
 
 console.log("\n")
 console.log("Release 2 ============================================")
+//Write a function that takes an integer for length, and builds and returns an array of strings of the given length.
+// find out what random command JS has. Use that to generate a random word length, and probably unicode numbers for letters 97 -122.
+// in a function the number from the driver code will be passed in and will determine the array length.
+// make an empty array to collect the new words.
+// loop through a word generator x number of times to make random words (of various lengths, maybe just one letter longer each time up to 10) and push into the array.      
+// print the resulting array   String.fromCharCode(Math.random()*(122 - 97) + 97);
 
+var wordCollect = []
+
+function wordmaker(nums) {
+  var output = []
+  for (var n = 0; n < nums; n++){
+    // make a random number
+    var wordlength = Math.floor(Math.random() * (11 - 1)) + 1;
+    console.log(wordlength);
+    var unicodeArr = []
+    // make a word of 7 characters. ie loop 7 times to make 7 random numbers between 97 and 122
+    for (var i = 0; i < wordlength; i++){
+      var uni = Math.floor(Math.random() * (122 - 97)) + 97;
+      unicodeArr.push(uni);
+    //      console.log(unicodeArr);
+    }
+    output.push(unicodeArr)
+//    wordCollect.push(unicode_arr);
+  }
+  return(output);
+}
+
+var count = 2
+
+var chars = wordmaker(count);
+console.log(chars);
 
 
 
