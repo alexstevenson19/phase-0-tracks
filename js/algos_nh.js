@@ -31,26 +31,19 @@ console.log("Release 1 ============================================")
 //Use the "select method" to loop through the Objects to compare the keys/value pairs. Store the matches in a new object?
 //A slight adjustment, I will collect the keys of one of the objects in an array, and hopefully be able to iterate through the keys to get value comparisons.
 
-//var select = function(obj1, obj2, func) {
-//  var results = [];
-//
-//  for (var i=0; i < obj1.length; i++) {
-//    if (func(obj1[i], obj2[i])) {
-//      results.push(obj1[i]);
-//    }
-//  }
-//
-//  return results;
-//};
-//
+var select = function(keyCollect, func) {
+  var results = [];
 
-//var object01 = {name: "Steven", age: 54, sport: "soccer"};
-//var object02 = {name: "Tamir", age: 54, sport: "basketball"};
+  for (var i=0; i < keyCollect.length; i++) {
+    if (func(keyCollect[i])) {
+      results.push(keyCollect[i]);
+    }
+  }
 
-//var findMatch = function(obj1, obj2) { return toString(obj1[x])===toString(obj2[x]);};
-//
-//var matcher = select(object01, object02, findMatch);
-//console.log(matcher);
+  return results;
+};
+
+
 
 
 function kCollector(obj1, obj2) {
@@ -71,6 +64,12 @@ keyCollect = kCollector(object01, object02);
 console.log(keyCollect);
 
 //console.log(object01[keyCollect[2]]);
+
+var findMatch = function(x) { return (object01[x]) == object02[x];};
+//
+var matcher = select(keyCollect, findMatch);
+console.log(matcher);
+
 
 
 
