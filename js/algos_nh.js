@@ -65,8 +65,8 @@ function report(matchArr, obj1){
 	return(matchArr + " is/are the same in both objects.");
   }
 }
-//------------------------------------------------------------
 
+//driver code----------------------------------------------------
 
 var object01 = {name: "Steven", age: 54, sport: "soccer", movie: "stars", music: "rock"};
 var object02 = {name: "Tamir", age: 54, sport: "basketball", movie: "stars", posters: "rock"};
