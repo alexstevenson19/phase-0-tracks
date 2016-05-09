@@ -86,7 +86,7 @@ console.log (keyCollect);
 
 
 for (var i = 0; i < object01.length; i++){
-	if (object01[keyCollect[i]] == object02[keyCollect[i]]){
+	if (object01[keyCollect[i]].match(object02[keyCollect[i]])){
 		console.log("There is" + i + "match(es)");
 	}
 }
