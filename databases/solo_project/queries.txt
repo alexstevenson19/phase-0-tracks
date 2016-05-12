@@ -108,3 +108,60 @@ id   name             elevation   climbed  countries
 8    Mount Evans      14265       false    United States  
 9    Pikes Peak       14114       true     United States  
 10   Warusawa-san     10305       false    Japan  
+
+
+Release 3 JOINS
+
+NATURAL INNER JOIN -  automatically uses all the matching column names for the join. In our tables, country_id is in both tables (I think).
+
+SELECT mountains.id, mountains.name, mountains.elevation, mountains.climbed, country.countries FROM mountains NATURAL JOIN country;
+
+1|Aso-san|5223|true|Japan
+2|Blanca Peak|14344|false|United States
+3|Fuji-san|12389|true|Japan
+4|Gassan|6509|true|Japan
+5|Longs Peak|14259|true|United States
+7|Kita-dake|10476|false|Japan
+8|Mount Evans|14265|false|United States
+9|Pikes Peak|14114|true|United States
+10|Warusawa-san|10305|false|Japan
+
+or a much shorter easier version:
+
+sqlite> SELECT * FROM mountains NATURAL JOIN country;
+
+1|Aso-san|5223|true|2|Japan
+2|Blanca Peak|14344|false|1|United States
+3|Fuji-san|12389|true|2|Japan
+4|Gassan|6509|true|2|Japan
+5|Longs Peak|14259|true|1|United States
+7|Kita-dake|10476|false|2|Japan
+8|Mount Evans|14265|false|1|United States
+9|Pikes Peak|14114|true|1|United States
+10|Warusawa-san|10305|false|2|Japan
+
+
+CROSS JOIN - Joins all information from one table with the other table. Perhaps useful in some rare instance.
+
+sqlite> SELECT * FROM mountains CROSS JOIN country;
+
+1|Aso-san|5223|true|2|1|United States
+1|Aso-san|5223|true|2|2|Japan
+2|Blanca Peak|14344|false|1|1|United States
+2|Blanca Peak|14344|false|1|2|Japan
+3|Fuji-san|12389|true|2|1|United States
+3|Fuji-san|12389|true|2|2|Japan
+4|Gassan|6509|true|2|1|United States
+4|Gassan|6509|true|2|2|Japan
+5|Longs Peak|14259|true|1|1|United States
+5|Longs Peak|14259|true|1|2|Japan
+7|Kita-dake|10476|false|2|1|United States
+7|Kita-dake|10476|false|2|2|Japan
+8|Mount Evans|14265|false|1|1|United States
+8|Mount Evans|14265|false|1|2|Japan
+9|Pikes Peak|14114|true|1|1|United States
+9|Pikes Peak|14114|true|1|2|Japan
+10|Warusawa-san|10305|false|2|1|United States
+10|Warusawa-san|10305|false|2|2|Japan
+
+In this case a LEFT OUTER JOIN didn’t seem to do much, but I don’t have any null values that don’t have a match from the other table.
