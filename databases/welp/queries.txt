@@ -1,0 +1,40 @@
+
+Release 2
+
+
+2. 
+sqlite> SELECT * FROM reviews JOIN users ON reviews.users_id = users.id, businesses ON reviews.businesses_id = businesses.id;
+
+1|4|Great food!|6|1|1|Bradford|Pitt|6|Sushi World
+2|2|late tow truck|2|3|3|Angela|Jolie|2|Amir's Towing
+3|5|made me howl all night long|3|3|3|Angela|Jolie|3|The Beagle Nightclub
+
+
+
+3.
+sqlite> SELECT stars, comment, users.first_name, users.last_name, businesses.name FROM reviews JOIN users ON reviews.users_id = users.id, businesses ON reviews.businesses_id = businesses.id;
+
+4|Great food!|Bradford|Pitt|Sushi World
+2|late tow truck|Angela|Jolie|Amir's Towing
+5|made me howl all night long|Angela|Jolie|The Beagle Nightclub
+
+
+
+4.
+sqlite> SELECT stars, comment, users.first_name, users.last_name, businesses.name FROM reviews JOIN users ON reviews.users_id = users.id, businesses ON reviews.businesses_id = businesses.id WHERE reviews.id = 2;
+
+2|late tow truck|Angela|Jolie|Amir's Towing
+
+sqlite> SELECT stars, comment, users.first_name, users.last_name, businesses.name FROM reviews JOIN users ON reviews.users_id = users.id, businesses ON reviews.businesses_id = businesses.id WHERE reviews.id = 1;
+
+4|Great food!|Bradford|Pitt|Sushi World
+
+
+Or if you want list all restaurants with (x) number of stars:
+
+sqlite> SELECT stars, comment, users.first_name, users.last_name, businesses.name FROM reviews JOIN users ON reviews.users_id = users.id, businesses ON reviews.businesses_id = businesses.id WHERE stars = 5;
+
+5|made me howl all night long|Angela|Jolie|The Beagle Nightclub
+
+
+
