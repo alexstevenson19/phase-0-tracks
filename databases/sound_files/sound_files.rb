@@ -173,18 +173,28 @@ def sound_input_retrieve(db)
       	elsif selection.to_i == 2
       	  puts "Please enter the year:"
       	  year = gets.chomp
-      	  output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
-      			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
-      			folders ON sound_table.folder_id = folders.id WHERE year_when = #{year}")
-      	  valid_input = true
+      	  year_check = db.execute("SELECT * FROM sound_table WHERE year_when='#{year}'")
+      	    if year_check.length < 1
+      	    	puts "Sorry, no year match."
+      	    else
+      	      output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      	  		  FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
+      	  		  folders ON sound_table.folder_id = folders.id WHERE year_when = #{year}")
+      	      valid_input = true
+      		end
 
       	elsif selection.to_i == 3
       	  puts "Please enter the location:"
       	  location = gets.chomp.downcase
-          output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
-      			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
-      			folders ON sound_table.folder_id = folders.id WHERE location = '#{location}'")
-      	  valid_input = true
+      	  location_check = db.execute("SELECT * FROM sound_table WHERE location='#{location}'")
+      	    if location_check.length < 1
+      	    	puts "Sorry, no location match."
+      	    else
+              output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      	  	      FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
+      	  		  folders ON sound_table.folder_id = folders.id WHERE location = '#{location}'")
+      	      valid_input = true
+      	    end
 
       	elsif selection.to_i == 4
       	  puts "Please enter the keyword(s):"
