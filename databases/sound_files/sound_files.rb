@@ -29,38 +29,82 @@ create_theme_table = <<-SQL
   CREATE TABLE IF NOT EXISTS themes(
   	id INTEGER PRIMARY KEY,
   	name VARCHAR(255)
-  	)
+  	);
 SQL
 
 create_folder_table = <<-SQL
   CREATE TABLE IF NOT EXISTS folders(
   	id INTEGER PRIMARY KEY,
   	name VARCHAR(255)
-  	)
-
+  	);
 SQL
 
 create_sound_table = <<-SQL
   CREATE TABLE IF NOT EXISTS sound_table (
     id INTEGER PRIMARY KEY,
     theme_id INT,
-	whens VARCHAR(255),
+	year_when VARCHAR(255),
 	location VARCHAR(255),
 	keywords VARCHAR(255),
 	folder_id INT
-	)
+	);
+
+  CREATE TABLE IF NOT EXISTS folders(
+  	id INTEGER PRIMARY KEY,
+  	name VARCHAR(255)
+  	);
+
+  CREATE TABLE IF NOT EXISTS themes(
+  	id INTEGER PRIMARY KEY,
+  	name VARCHAR(255)
+  	);
+
 SQL
 
 
+# methods for foreign tables with finite information
+create_folders = <<-SQL
+  INSERT INTO folders (name) VALUES ('A'), ('B'), ('C'), ('D'), ('E')
+SQL
 
-db.execute(create_sound_table)
-db.execute(create_folder_table)
-db.execute(create_theme_table)
 
-#  INSERT INTO folders (name) VALUE ("A"), ("B"), ("C"), ("D"), ("E");
+create_themes = <<-SQL
+   INSERT INTO themes (name) VALUES ('Inner Thoughts'), ('Stories'), ('Travel Journal'), ('Japan Life Journal'), 
+     ('Memo'), ('Work Related'), ('Brainstorm')
+ SQL
 
-#  INSERT INTO themes (name) VALUE ("Inner Thoughts"), ("Stories"), ("Travel Journal"), ("Japan Life Journal"), 
-#    ("Memo"), ("Work Related"), ("Brainstorm");
+# Need two methods to convert folders and themes into id numbers
+
+def create_soundtable(db, theme, time, location, keywords, folder)
+  db.execute("INSERT INTO kittens (theme_id, year_when, location, keywords, folder_id) 
+  	VALUES (?, ?, ?, ?, ?)", [theme, time, location, keywords, folder])
+end
+
+
+
+
+db.execute_batch(create_sound_table)
+#db.execute_batch(create_folder_table)
+#db.execute_batch(create_theme_table)
+
+# if returned array is < 5 or 7, then run table set up
+folder_size = db.execute("SELECT * FROM folders")
+theme_size = db.execute("SELECT * FROM themes")
+
+if folder_size.length < 5
+	db.execute(create_folders)
+end
+
+if theme_size.length < 7
+	db.execute(create_themes)
+end
+
+# call foreign table methods
+# db.execute(create_folders)
+# db.execute(create_themes)
+
+
+
 
 
 
