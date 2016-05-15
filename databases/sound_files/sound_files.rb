@@ -1,7 +1,7 @@
 
 =begin
-	Make a Olympus Sound File organizer. (Can also be used to make a photo organizer)
-	I have digital recordings of my travels in Japan, but due to the nature of the voice recorder file system, files
+	Make a Olympus Voice Recorder Sound File organizer. (Can also be adapted to make a photo organizer)
+	I have digital recordings of my travels in Japan, US, and Europe but due to the nature of the voice recorder file system, files
 	from similar time frames are broken up between five folders. While I have labeled the files themselves, I still have to 
 	search through the folders to find them.
 
@@ -22,22 +22,20 @@ require 'sqlite3'
 db = SQLite3::Database.new("sound_files.db")
 #db.results_as_hash = true
 
-
-
 # I may have to break the INSERT INTO command into a separate .execute command/method, but will try it all together at first.
-create_theme_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS themes(
-  	id INTEGER PRIMARY KEY,
-  	name VARCHAR(255)
-  	);
-SQL
+# create_theme_table = <<-SQL
+#   CREATE TABLE IF NOT EXISTS themes(
+#   	id INTEGER PRIMARY KEY,
+#   	name VARCHAR(255)
+#   	);
+# SQL
 
-create_folder_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS folders(
-  	id INTEGER PRIMARY KEY,
-  	name VARCHAR(255)
-  	);
-SQL
+# create_folder_table = <<-SQL
+#   CREATE TABLE IF NOT EXISTS folders(
+#   	id INTEGER PRIMARY KEY,
+#   	name VARCHAR(255)
+#   	);
+# SQL
 
 create_sound_table = <<-SQL
   CREATE TABLE IF NOT EXISTS sound_table (
@@ -73,6 +71,9 @@ create_themes = <<-SQL
      ('Memo'), ('Work Related'), ('Brainstorm')
  SQL
 
+
+
+
 # Need two methods to convert folders and themes into id numbers
 
 def create_soundtable(db, theme, time, location, keywords, folder)
@@ -80,12 +81,29 @@ def create_soundtable(db, theme, time, location, keywords, folder)
   	VALUES (?, ?, ?, ?, ?)", [theme, time, location, keywords, folder])
 end
 
+def soundtable_input_theme
+  valid_input = false
+  until valid_input
+	puts "Please select a theme. \n
+	  Inner Thoughts(1), Stories(2), Travel Journal(3), Japan Life Journal(4), 
+      Memo(5), Work Related(6), Brainstorm(7)\n		
+      Just type the corresponding number:"
+      theme = gets.chomp
+      	if theme.to_i > 7 || theme.to_i < 1
+      		puts "Sorry that is not a selection, please enter the number again."
+      		valid_input = false
+      	else
+      		theme
+      		valid_input = true      		
+      	end
+  end
+  theme
+end
 
 
 
+# initial set up ==========================================================
 db.execute_batch(create_sound_table)
-#db.execute_batch(create_folder_table)
-#db.execute_batch(create_theme_table)
 
 # if returned array is < 5 or 7, then run table set up
 folder_size = db.execute("SELECT * FROM folders")
@@ -99,10 +117,30 @@ if theme_size.length < 7
 	db.execute(create_themes)
 end
 
-# call foreign table methods
-# db.execute(create_folders)
-# db.execute(create_themes)
 
+# user interface - INPUT ==================================================
+quit = false
+
+until quit
+
+  puts "Welcome to the Sound File Organizer."
+  puts "Would you like to add information or retrieve information? Please type 'add' or 'retrieve':"
+  puts "(Type 'q' to exit at any time.)"
+  selection = gets.chomp
+
+  if selection.downcase == "q"
+      	quit = true
+    
+  elsif selection.downcase == "add"
+	  theme = soundtable_input_theme.to_i
+	p theme
+  elsif selection.downcase == "retrieve"
+  	#retrieval process
+  end
+
+end
+
+puts "Thank you for using the Sound File Organizer today."
 
 
 
