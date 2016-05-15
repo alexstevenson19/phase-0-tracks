@@ -20,7 +20,8 @@ require 'sqlite3'
 
 
 db = SQLite3::Database.new("sound_files.db")
-db.results_as_hash = true
+#db.results_as_hash = true
+
 
 
 # I may have to break the INSERT INTO command into a separate .execute command/method, but will try it all together at first.
@@ -28,34 +29,38 @@ create_theme_table = <<-SQL
   CREATE TABLE IF NOT EXISTS themes(
   	id INTEGER PRIMARY KEY,
   	name VARCHAR(255)
-  	);
-  INSERT INTO themes (name) VALUE ("Inner Thoughts"), ("Stories"), ("Travel Journal"), ("Japan Life Journal"), 
-    ("Memo"), ("Work Related"), ("Brainstorm");
+  	)
 SQL
 
 create_folder_table = <<-SQL
   CREATE TABLE IF NOT EXISTS folders(
   	id INTEGER PRIMARY KEY,
   	name VARCHAR(255)
-  	);
-  INSERT INTO folders (name) VALUE ("A"), ("B"), ("C"), ("D"), ("E");
+  	)
+
 SQL
 
 create_sound_table = <<-SQL
   CREATE TABLE IF NOT EXISTS sound_table (
     id INTEGER PRIMARY KEY,
     theme_id INT,
-	when VARCHAR(255),
+	whens VARCHAR(255),
 	location VARCHAR(255),
-	keywords VARCHAR(255)
+	keywords VARCHAR(255),
 	folder_id INT
 	)
 SQL
 
 
 
-sound_db.execute(create_sound_table, create_folder_table, create_theme_table)
+db.execute(create_sound_table)
+db.execute(create_folder_table)
+db.execute(create_theme_table)
 
+#  INSERT INTO folders (name) VALUE ("A"), ("B"), ("C"), ("D"), ("E");
+
+#  INSERT INTO themes (name) VALUE ("Inner Thoughts"), ("Stories"), ("Travel Journal"), ("Japan Life Journal"), 
+#    ("Memo"), ("Work Related"), ("Brainstorm");
 
 
 
