@@ -77,35 +77,16 @@ create_themes = <<-SQL
 # Need two methods to convert folders and themes into id numbers
 
 def create_soundtable(db, theme, time, location, keywords, folder)
-  db.execute("INSERT INTO kittens (theme_id, year_when, location, keywords, folder_id) 
+  db.execute("INSERT INTO sound_table (theme_id, year_when, location, keywords, folder_id) 
   	VALUES (?, ?, ?, ?, ?)", [theme, time, location, keywords, folder])
 end
 
-
-def soundtable_input_theme
-  valid_input = false
-  until valid_input
-	puts "Please select a theme. \n
-	  Inner Thoughts(1), Stories(2), Travel Journal(3), Japan Life Journal(4), 
-      Memo(5), Work Related(6), Brainstorm(7)\n		
-      Just type the corresponding number:"
-      theme = gets.chomp
-      	if theme.to_i > 7 || theme.to_i < 1
-      		puts "Sorry that is not a selection, please enter the number again."
-      		valid_input = false
-      	else
-      		theme
-      		valid_input = true      		
-      	end
-  end
-  theme
-end
 
 
 def soundtable_input_folder
   valid_input = false
   until valid_input
-	puts "Please select a folder. \n
+	puts "Please select the folder where the file is currently located. \n
 	  A, B, C, D, E"
       folder = gets.chomp
       	if folder.downcase == "a"
@@ -129,6 +110,25 @@ def soundtable_input_folder
       	end
   end
   folder_id
+end
+
+def soundtable_input_theme
+  valid_input = false
+  until valid_input
+	puts "Please select a theme. \n
+	  Inner Thoughts(1), Stories(2), Travel Journal(3), Japan Life Journal(4), 
+      Memo(5), Work Related(6), Brainstorm(7)\n		
+      Just type the corresponding number:"
+      theme = gets.chomp
+      	if theme.to_i > 7 || theme.to_i < 1
+      		puts "Sorry that is not a selection, please enter the number again."
+      		valid_input = false
+      	else
+      		theme
+      		valid_input = true      		
+      	end
+  end
+  theme
 end
 
 def sound_input_year
@@ -191,14 +191,14 @@ until quit
       	quit = true
     
   elsif selection.downcase == "add"
-	  theme = soundtable_input_theme.to_i
-	  #p theme
-	  folder = soundtable_input_folder.to_i
-	  #p folder_id
+  	  folder = soundtable_input_folder.to_i
+	  theme = soundtable_input_theme.to_i 
 	  time = sound_input_year
 	  location = sound_input_location
 	  keywords = sound_input_keywords
-	  puts "#{theme}, #{folder}, #{time}, #{location}, #{keywords} "
+	  #puts "#{theme}, #{folder}, #{time}, #{location}, #{keywords} "
+
+	  create_soundtable(db, theme, time, location, keywords, folder)
 
   elsif selection.downcase == "retrieve"
   	#retrieval process
