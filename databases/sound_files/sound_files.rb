@@ -81,6 +81,7 @@ def create_soundtable(db, theme, time, location, keywords, folder)
   	VALUES (?, ?, ?, ?, ?)", [theme, time, location, keywords, folder])
 end
 
+
 def soundtable_input_theme
   valid_input = false
   until valid_input
@@ -101,6 +102,60 @@ def soundtable_input_theme
 end
 
 
+def soundtable_input_folder
+  valid_input = false
+  until valid_input
+	puts "Please select a folder. \n
+	  A, B, C, D, E"
+      folder = gets.chomp
+      	if folder.downcase == "a"
+      	    folder_id = 1
+      	    valid_input = true
+      	  elsif folder.downcase == "b" 
+      	    folder_id = 2
+      	    valid_input = true
+      	  elsif folder.downcase == "c" 
+      	    folder_id = 3
+      	    valid_input = true
+      	  elsif folder.downcase == "d"
+      	    folder_id = 4
+      	    valid_input = true
+      	  elsif folder.downcase == "e"
+      	    folder_id = 5
+      	    valid_input = true
+      	  else
+      	    puts "Sorry that is not a selection, please enter the letter again."
+      	    valid_input = false     		
+      	end
+  end
+  folder_id
+end
+
+def sound_input_year
+	puts "Please enter the year, and month or season."
+	year_when = gets.chomp
+	year_when
+end
+
+def sound_input_location
+	puts "Please enter the location."
+	location = gets.chomp
+	location
+end
+
+def sound_input_keywords
+	puts "Please enter one or more keywords."
+	keywords = gets.chomp
+	keywords
+end
+
+
+
+
+
+
+
+
 
 # initial set up ==========================================================
 db.execute_batch(create_sound_table)
@@ -118,6 +173,10 @@ if theme_size.length < 7
 end
 
 
+
+
+
+
 # user interface - INPUT ==================================================
 quit = false
 
@@ -133,7 +192,14 @@ until quit
     
   elsif selection.downcase == "add"
 	  theme = soundtable_input_theme.to_i
-	p theme
+	  #p theme
+	  folder = soundtable_input_folder.to_i
+	  #p folder_id
+	  time = sound_input_year
+	  location = sound_input_location
+	  keywords = sound_input_keywords
+	  puts "#{theme}, #{folder}, #{time}, #{location}, #{keywords} "
+
   elsif selection.downcase == "retrieve"
   	#retrieval process
   end
