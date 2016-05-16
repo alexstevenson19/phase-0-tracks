@@ -165,7 +165,7 @@ def sound_input_retrieve(db)
     	        end
     	  end
 
-      		output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      		output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
       			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
       			folders ON sound_table.folder_id = folders.id WHERE theme_id = #{theme}")
       		valid_input = true
@@ -177,7 +177,7 @@ def sound_input_retrieve(db)
       	    if year_check.length < 1
       	    	puts "Sorry, no year match."
       	    else
-      	      output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      	      output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
       	  		  FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
       	  		  folders ON sound_table.folder_id = folders.id WHERE year_when = #{year}")
       	      valid_input = true
@@ -190,7 +190,7 @@ def sound_input_retrieve(db)
       	    if location_check.length < 1
       	    	puts "Sorry, no location match."
       	    else
-              output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+              output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
       	  	      FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
       	  		  folders ON sound_table.folder_id = folders.id WHERE location = '#{location}'")
       	      valid_input = true
@@ -203,14 +203,14 @@ def sound_input_retrieve(db)
       	    if key_check.length < 1
       	    	puts "Sorry, no keyword match."
       	    else
-      	    	output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      	    	output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
       			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
       			folders ON sound_table.folder_id = folders.id WHERE keywords = '#{keyword}'")
       			valid_input = true
       		end
 
       	else #selection_to_i == 5
-      	  output = db.execute("SELECT themes.name, year_when, location, keywords, folders.name 
+      	  output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
       			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
       			folders ON sound_table.folder_id = folders.id")
       	  	valid_input = true
@@ -219,7 +219,7 @@ def sound_input_retrieve(db)
       		
 
   end
-  puts "#{output}"
+  #puts "#{output}"
   output
 end
 
@@ -271,7 +271,10 @@ until quit
 
   elsif selection.downcase == "retrieve"
   	#retrieval process
-  	sound_input_retrieve(db)
+  	puts "Here are the files matching your request:"
+  	sound_input_retrieve(db).each do |output|
+  	  puts "Index#:#{output[0]} in folder #{output[5]} -- Theme: #{output[1]}\n Location: #{output[3]}\n Year: #{output[2]}\n Keywords: #{output[4]}.\n\n"
+  	end
   else
 
   end
