@@ -49,7 +49,7 @@ create_sound_table = <<-SQL
 SQL
 
 
-# create foreign tables with finite information
+# create two tables with finite information
 create_folders = <<-SQL
   INSERT INTO folders (name) VALUES ('A'), ('B'), ('C'), ('D'), ('E')
 SQL
@@ -136,6 +136,8 @@ def sound_input_keywords
 	keywords
 end
 
+
+
 def sound_input_retrieve(db)
   output = nil
   valid_input = false
@@ -157,18 +159,24 @@ def sound_input_retrieve(db)
     	      Just type the corresponding number:"
     	      theme = gets.chomp
     	        if theme.to_i > 7 || theme.to_i < 1
-    	            puts "Sorry that is not a selection, please enter the number again."
-    	        	  valid_theme = false
-    	        	else
-    	        	  theme
-    	        	  valid_theme = true      		
+    	          puts "Sorry that is not a selection, please enter the number again."
+    	          valid_theme = false
+
+    	        else 
+    	          theme_check = db.execute("SELECT * FROM sound_table WHERE theme_id= #{theme}")
+      	     	  if theme_check.length < 1
+      	    	    puts "Sorry, no theme match."
+      	    	    valid_theme = true
+      	    	    valid_input = false      	 
+    	          else
+      			    output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
+      			    	FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
+      			    	folders ON sound_table.folder_id = folders.id WHERE theme_id = #{theme}")
+      			    valid_theme = true
+      			    valid_input = true  
+      			  end  		
     	        end
     	  end
-
-      		output = db.execute("SELECT sound_table.id, themes.name, year_when, location, keywords, folders.name 
-      			FROM sound_table JOIN themes ON sound_table.theme_id = themes.id, 
-      			folders ON sound_table.folder_id = folders.id WHERE theme_id = #{theme}")
-      		valid_input = true
 
       	elsif selection.to_i == 2
       	  puts "Please enter the year:"
@@ -215,7 +223,7 @@ def sound_input_retrieve(db)
       			folders ON sound_table.folder_id = folders.id")
       	  	valid_input = true
 
-      end #valid input if loop
+      end
       		
 
   end
@@ -266,16 +274,19 @@ until quit
 	time = sound_input_year
 	location = sound_input_location
 	keywords = sound_input_keywords
-	#puts "#{theme}, #{folder}, #{time}, #{location}, #{keywords} 
+
 	create_soundtable(db, theme, time, location, keywords, folder)
 
   elsif selection.downcase == "retrieve"
   	#retrieval process
   	puts "Here are the files matching your request:"
   	sound_input_retrieve(db).each do |output|
-  	  puts "Index#:#{output[0]} in folder #{output[5]} -- Theme: #{output[1]}\n Location: #{output[3]}\n Year: #{output[2]}\n Keywords: #{output[4]}.\n\n"
-  	end
+  	  puts "Index#:#{output[0]} in folder #{output[5]} -- Theme: #{output[1]}\n Location: #{output[3]}\n Year: #{output[2]}\n Keywords: #{output[4]}.\n"
+  	  puts "=========================================\n"
+  	  end
+  	  
   else
+  	puts "Sorry, could not process request. Please re-type, thank you.\n"
 
   end
 
