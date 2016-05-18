@@ -32,3 +32,4 @@
 *  Also use POST when dealing with long requests
 
 4. Cookies
+* A cookie is a small file that is used to identify a user. It is sent by the server and embedded on the user's computer. When the user returns to a page the server can access the cookie typically uses the information customize a visit, for instance if a username is saved, the user won't have to re-type it every visit.
