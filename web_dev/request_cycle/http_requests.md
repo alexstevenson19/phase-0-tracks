@@ -30,3 +30,5 @@
 
 * Use GET for safe actions, POST for unsafe actions i.e. sensitive data.
 *  Also use POST when dealing with long requests
+
+4. Cookies
