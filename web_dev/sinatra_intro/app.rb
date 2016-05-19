@@ -68,7 +68,17 @@ get '/addition/:num1/plus/:num2' do
   n2 = params[:num2]
   add = n1.to_i + n2.to_i
   "#{n1} + #{n2} = #{add}"
-  end
+end
 
+get '/age_search/:age' do
+  student = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])[0]
+  report = ""
+  if student 
+      report << "#{student['name']} is #{params[:age]}."
+  else
+     report << "There are no students that are #{params[:age]}."
+  end
+  report
+end
 
 
