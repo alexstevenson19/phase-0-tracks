@@ -41,6 +41,44 @@ end
 # a particular student
 
 get '/students/:id' do
-  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]   #the brackets at the end just get rid of the brackets around the hash when it prints to the browser.
   student.to_s
 end
+
+
+# add a contact route. I decided just to use the names from the student database
+get '/students/:id/contact/:address' do
+  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+  "#{student['name']} lives at #{params[:address]}."
+  end
+
+# add a 'great job' route with a query parameter. *note, you need the last '/' in the get call for the query parameter to work
+get '/great_job/' do
+  name = params[:name]
+  if name
+    "Great job #{name}!"
+  else
+    "Great job user!"
+  end
+end
+
+
+get '/addition/:num1/plus/:num2' do
+  n1 = params[:num1]
+  n2 = params[:num2]
+  add = n1.to_i + n2.to_i
+  "#{n1} + #{n2} = #{add}"
+end
+
+get '/age_search/:age' do
+  student = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])[0]
+  report = ""
+  if student 
+      report << "#{student['name']} is #{params[:age]}."
+  else
+     report << "There are no students that are #{params[:age]}."
+  end
+  report
+end
+
+
