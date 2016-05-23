@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jquery practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+ 
+ <!-- <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+ --> 
+  <script>
+  $(document).ready(function(){
+
+    $("h1").css("font-family", "Arial");
+
+    $("#star_table").css("background-color", "orange");	
+
+    $("th").css({"color": "white", "font-family": "Arial"});
+
+    $("#phantom").mouseover(function(){
+      $("td").css("background-color", "yellow");
+    });
+    $("#phantom").mouseleave(function(){
+      $("td").css("background-color", "orange");
+    });
+
+    $("#empire").mouseover(function(){
+      $("td").css("background-color", "red");
+    });
+    $("#empire").mouseleave(function(){
+      $("td").css("background-color", "orange");
+    });
+
+    $("#return").mouseover(function(){
+      $("td").css("background-color", "cyan");
+    });
+    $("#return").mouseleave(function(){
+      $("td").css("background-color", "orange");
+    });
+
+  });
+
+</script>
+
+</head>
+<body>
+
+
+
+
+<h1>Let's Make a Second Star Wars Table!</h1>
+
+<p>
+
+<table id="star_table">
+	<tr>
+		<th>Movie</th>
+		<th>Director</th>
+		<th>Producer</th>
+		<th>Composer</th>
+		<th>Villan</th>
+	</tr>
+	<tr>
+		<th id="phantom">Episode I</th>
+		<td colspan="2">George Lucas</td>
+		<td rowspan="3">John Williams</td>
+		<td>Darth Maul</td>
+	</tr>
+	<tr>
+		<th id=empire>Episode V</th>
+		<td>Irving Kershner</td>
+		<td rowspan="2">George Lucas</td>
+		<td rowspan="2">Darth Vader</td>
+	</tr>
+	<tr>
+		<th id=return>Episode VI</th>
+		<td>Richard Marquand</td>
+	</tr>
+
+</table>
+
+</p>
+
+</body>
+</html>
